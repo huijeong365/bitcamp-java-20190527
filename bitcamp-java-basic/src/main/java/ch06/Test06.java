@@ -55,7 +55,7 @@ public class Test06 {
   }
   
   // 같은 타입의 값을 0개 이상 받을 때 가변 파라미터를 사용하라!
-  static int plus(int... value) {
+  static int plus(int... value) { //int 값을 0개이상 받는 변수
     // value는 int[] 배열 주소를 갖고 있는 레퍼런스(주소 변수)이다.
     
     // 가변 파라미터는 배열 레퍼런스처럼 사용한다.
