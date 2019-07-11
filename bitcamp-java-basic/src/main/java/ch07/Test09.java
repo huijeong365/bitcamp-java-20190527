@@ -101,6 +101,8 @@ public class Test09 {
     //Score4 s4 = new Score4(); // 컴파일 오류!
     
   }
+  
+  
 }
 
 

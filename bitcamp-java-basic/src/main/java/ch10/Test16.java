@@ -15,6 +15,7 @@ public class Test16 {
     c1 = Calendar.getInstance();
     
     System.out.println(c1.get(Calendar.YEAR));
+    System.out.println(c1.get(Calendar.DAY_OF_MONTH)); 
     
     /* 
      # 팩토리 메서드(factory method)
