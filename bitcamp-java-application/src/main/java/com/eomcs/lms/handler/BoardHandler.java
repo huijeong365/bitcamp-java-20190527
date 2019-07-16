@@ -7,7 +7,7 @@ import com.eomcs.util.Input;
 
 public class BoardHandler {
   
-  private ArrayList boardList = new ArrayList();
+  private ArrayList<Board> boardList = new ArrayList();
   
   private Input input;
   
@@ -32,9 +32,11 @@ public class BoardHandler {
   }
 
   public void listBoard() {
-    Object[] list = boardList.toArray();
-    for(Object obj : list) {
-      Board board = (Board) obj;
+   // Board[] boards = new Board[boardList.size()];
+   // boardList.toArray(boards);
+    
+    Board[] boards = boardList.toArray(new Board[] {});
+    for(Board board : boards) {
       System.out.printf("%s, %s, %s, %s\n",board.getNo(), board.getContents(), 
           board.getCreatedDate(), board.getViewcount());
     }

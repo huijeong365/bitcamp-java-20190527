@@ -6,7 +6,7 @@ import com.eomcs.util.Input;
 
 public class LessonHandler {
   
-  private ArrayList lessonList = new ArrayList();
+  private ArrayList<Lesson> lessonList = new ArrayList();
   
   private Input input;
   
@@ -35,9 +35,8 @@ public class LessonHandler {
   }
   
   public void listLesson() {
-    Object[] list = lessonList.toArray();
-    for (Object obj : list) {
-      Lesson lesson = (Lesson) obj;
+    Lesson[] lessons = lessonList.toArray(new Lesson[] {});
+    for (Lesson lesson : lessons) {
       System.out.printf("%s, %s, %s ~ %s, %s\n",
           lesson.getNo(), lesson.getTitle(), lesson.getStartDate(), lesson.getEndDate(), 
           lesson.getTotalHours(), lesson.getDayHours());
