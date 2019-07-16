@@ -38,4 +38,90 @@ public class MemberHandler {
           member.getPassword(),member.getTel(), member.getRegisteredDate());
     }
   }
+
+  public void detailMember() {
+    int no = input.getIntValue("번호? ");
+    
+    Member member = null;
+    for (int i = 0; i < memberList.size(); i++) {
+      Member temp = memberList.get(i);
+      if (temp.getNo() == no) {
+        member = temp;
+        break;
+      }
+    }
+    
+    if (member == null) {
+      System.out.println("학생을 찾을 수 없습니다.");
+      return;
+    }
+    
+    System.out.printf("이름: %s\n", member.getName());
+    System.out.printf("이메일: %s\n", member.getEmail());
+    System.out.printf("암호: %s\n", member.getPassword());
+    System.out.printf("사진: %s\n", member.getPhoto());
+    System.out.printf("전화: %s\n", member.getTel());
+    System.out.printf("가입일: %s\n", member.getRegisteredDate());
+    
+  }
+
+  public void updateMember() {
+    int no = input.getIntValue("번호? ");
+    
+    Member member = null;
+    for (int i = 0; i < memberList.size(); i++) {
+      Member temp = memberList.get(i);
+      if (temp.getNo() == no) {
+        member = temp;
+        break;
+      }
+    }
+    
+    if (member == null) {
+      System.out.println("해당 회원을 찾을 수 없습니다.");
+      return;
+    }
+    
+    String str = input.getStringValue("이름(" + member.getName() + ")? ");
+    if (str.length() > 0) {
+      member.setName(str);
+    }
+    
+    str = input.getStringValue("이메일(" + member.getEmail() + ")? ");
+    if (str.length() > 0) {
+      member.setEmail(str);
+    }
+    
+    str = input.getStringValue("암호(" + member.getPassword() + ")? ");
+    if (str.length() > 0) {
+      member.setPassword(str);
+    }
+   
+    str = input.getStringValue("사진(" + member.getPhoto() + ")? ");
+    if (str.length() > 0) {
+      member.setPhoto(str);
+    }
+   
+    str = input.getStringValue("전화(" + member.getTel() + ")? ");
+    if (str.length() > 0) {
+      member.setTel(str);
+    }
+    
+    System.out.println("회원을 변경했습니다.");
+  }
+
+  public void deleteMember() {
+    int no = input.getIntValue("번호? ");
+    
+    for (int i = 0; i < memberList.size(); i++) {
+      Member temp = memberList.get(i);
+      if (temp.getNo() == no) {
+        memberList.remove(i);
+        System.out.println("회원을 삭제했습니다.");
+        return;
+      }
+    }
+      System.out.println("해당 회원을 찾을 수 없습니다.");
+    
+  }
 }
