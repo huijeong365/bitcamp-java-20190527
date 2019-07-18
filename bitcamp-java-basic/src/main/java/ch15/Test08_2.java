@@ -1,4 +1,4 @@
-// hash code 응용 - HashSet 과  hashCode()
+// hash code 응용 - 문제해결
 package ch15;
 
 import java.util.HashSet;

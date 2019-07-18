@@ -33,7 +33,6 @@ public class Test02 {
       System.out.println("같다");
     else 
       System.out.println("다르다");
-    
     System.out.println(obj2.toString());
     System.out.println(obj3.toString());
   }

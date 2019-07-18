@@ -43,16 +43,16 @@ public class Test10_1 {
     // 값을 저장할 때 사용한 key로 다시 객체를 꺼내보자!
     System.out.println(map.get(k2));
     
-    // k3와 같은 정수값을 가지는 key를 새로 생성한다.
+    // k2와 같은 정수값을 가지는 key를 새로 생성한다.
     Integer k6 = new Integer(102);
    
     // k2와 같은 값을 갖는 k6로 값을 꺼내보자!
     System.out.println(map.get(k6));
 
-    // 다음과 같이 k3와 k6는 분명히 다른 객체이다.
+    // 다음과 같이 k2와 k6는 분명히 다른 객체이다.
     System.out.println(k2 == k6);
     
-    // 그러나 k3와 k6는 같은 해시코드를 갖는다.
+    // 그러나 k2와 k6는 같은 해시코드를 갖는다.
     System.out.println(k2.hashCode()); // hash code는 같다.
     System.out.println(k6.hashCode()); // hash code는 같다.
     
