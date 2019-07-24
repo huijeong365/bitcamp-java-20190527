@@ -11,7 +11,7 @@ public class Test07 {
     // 다만 그럼에도 메서드 선언부에 지정하는 이유는 
     // 이 메서드를 호출하는 개발자에게 이 메서드에서 어떤 예외가 발생하는지 알려주기 위함이다.
     // 물론 이번 예제에서 main()에 붙이는 것은 아무 의미가 없다.
-    //=> throws 절에는 java.lang.Throwable 클래스만 선언할 수 있다.
+    // => throws 절에는 java.lang.Throwable 클래스만 선언할 수 있다.
     //    Object 클래스와 같은 것은 선언할 수 없다.
     throws RuntimeException { 
     
