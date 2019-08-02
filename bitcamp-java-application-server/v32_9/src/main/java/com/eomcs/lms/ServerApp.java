@@ -1,4 +1,4 @@
-// v32_12: DAO 클래스들의 공통 필드나 메서드를 뽑아 수퍼 클래스로 정의(generalization)
+// v32_9: 회원/수업/게시물 요청을 처리하는 클래스를 패키지로 분류한다.
 package com.eomcs.lms;
 
 import java.io.ObjectInputStream;
@@ -27,6 +27,7 @@ public class ServerApp {
         MemberServlet memberServlet = new MemberServlet(in, out);
         LessonServlet lessonServlet = new LessonServlet(in, out);
         
+        loop:
         while (true) {
           // 클라이언트가 보낸 명령을 읽는다.
           String command = in.readUTF();
@@ -44,19 +45,14 @@ public class ServerApp {
           } else if (command.equals("quit")) {
             out.writeUTF("ok");
             out.flush();
-            break;
+            break loop;
           } else {
             out.writeUTF("fail");
             out.writeUTF("지원하지 않는 명령입니다.");
           }
           out.flush();
           System.out.println("클라이언트에게 응답 완료!");
-        } 
-        //클라이언트와 연결을 끊기 전에 작업 내용을 파일에 저장한다.
-        boardServlet.saveData();
-        lessonServlet.saveData();
-        memberServlet.saveData();
-        
+        } // loop:
       } 
       
       System.out.println("클라이언트와 연결을 끊었음.");
@@ -68,4 +64,8 @@ public class ServerApp {
     System.out.println("서버 종료!");
   }
 }
+
+
+
+
 
