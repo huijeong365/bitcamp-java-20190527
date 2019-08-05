@@ -68,9 +68,8 @@ public class ServerApp {
             lessonServlet.service(command);
 
           } else if (command.equals("quit")) {
-            out.writeUTF("ok");
-            out.flush();
             break;
+            
           } else {
             out.writeUTF("fail");
             out.writeUTF("지원하지 않는 명령입니다.");
