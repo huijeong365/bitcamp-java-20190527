@@ -2,8 +2,10 @@ package com.eomcs.lms.client;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.util.List;
 import com.eomcs.lms.dao.MemberDao;
+import com.eomcs.lms.domain.Board;
 import com.eomcs.lms.domain.Member;
 
 // 서버쪽의 BoardDao를 대행할 프록시 객체를 정의한다.
@@ -20,75 +22,139 @@ import com.eomcs.lms.domain.Member;
 // => 프록시 역할을 수행할 클래스는 실제 일을 하는 클래스와 같은 규칙을 따라야 한다.
 // 
 public class MemberDaoProxy implements MemberDao {
-  
-  ObjectInputStream in;
-  ObjectOutputStream out;
-  
-  public MemberDaoProxy(ObjectInputStream in, ObjectOutputStream out) {
-    this.in = in;
-    this.out = out;
+
+  String host;
+  int port;
+
+  public MemberDaoProxy(String host, int port) {
+    this.host = host;
+    this.port = port;
   }
-  
+
   @Override
   public int insert(Member member) throws Exception {
-    out.writeUTF("/member/add");
-    out.writeObject(member);
-    out.flush();
-    
-    if (!in.readUTF().equals("ok"))
-      throw new Exception(in.readUTF());
-    
-    return 1;
+    try (Socket socket = new Socket(host, port);
+        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
+
+      out.writeUTF("/member/add");
+      out.writeObject(member);
+      out.flush();
+
+      if (!in.readUTF().equals("ok"))
+        throw new Exception(in.readUTF());
+
+      return 1;
+    }
   }
-  
+
   @SuppressWarnings("unchecked")
   @Override
   public List<Member> findAll() throws Exception {
-    out.writeUTF("/member/list");
-    out.flush();
-    
-    if (!in.readUTF().equals("ok"))
-      throw new Exception(in.readUTF());
-    
-    return (List<Member>)in.readObject();
+    try (Socket socket = new Socket(host, port);
+        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
+
+      out.writeUTF("/member/list");
+      out.flush();
+
+      if (!in.readUTF().equals("ok"))
+        throw new Exception(in.readUTF());
+
+      return (List<Member>)in.readObject();
     }
-  
+  }
+
   @Override
   public Member findBy(int no) throws Exception {
-    out.writeUTF("/member/detail");
-    out.writeInt(no);
-    out.flush();
-    
-    if (!in.readUTF().equals("ok"))
-      throw new Exception(in.readUTF());
-    
-    return (Member)in.readObject();
+    try (Socket socket = new Socket(host, port);
+        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
+
+      out.writeUTF("/member/detail");
+      out.writeInt(no);
+      out.flush();
+
+      if (!in.readUTF().equals("ok"))
+        throw new Exception(in.readUTF());
+
+      return (Member)in.readObject();
+    }
   }
-  
+
   @Override
   public int update(Member member) throws Exception {
-    out.writeUTF("/member/update");
-    out.writeObject(member);
-    out.flush();
-    
-    if (!in.readUTF().equals("ok"))
-      throw new Exception(in.readUTF());
-    
-    return 1;
+    try (Socket socket = new Socket(host, port);
+        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
+
+      out.writeUTF("/member/update");
+      out.writeObject(member);
+      out.flush();
+
+      if (!in.readUTF().equals("ok"))
+        throw new Exception(in.readUTF());
+
+      return 1;
+    }
   }
-  
+
   @Override
   public int delete(int no) throws Exception {
-    out.writeUTF("/board/delete");
-    out.writeInt(no);
-    out.flush();
-    
-    if (!in.readUTF().equals("ok"))
-      throw new Exception(in.readUTF());
-    
-    return 1;
+    try (Socket socket = new Socket(host, port);
+        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
+
+      out.writeUTF("/board/delete");
+      out.writeInt(no);
+      out.flush();
+
+      if (!in.readUTF().equals("ok"))
+        throw new Exception(in.readUTF());
+
+      return 1;
+    }
   }
+
+  public static void main(String[] args) throws Exception {
+    
+    MemberDaoProxy daoProxy = new MemberDaoProxy("localhost", 8888);
+
+//  // 입력 테스트
+//  Member member = new Member();
+//  member.setNo(100);
+//  member.setName("okokok");
+//
+//  daoProxy.insert(member);
+//  System.out.println("입력성공!");
   
   
+//  // 조회 테스트
+//  Member member = daoProxy.findBy(100);
+//  System.out.println(member);
+  
+//  // 목록 조회 테스트
+//  List<Member> members = daoProxy.findAll();
+//  for (Member member : members) {
+//    System.out.println(member);
+//  }
+  
+//  // 변경 테스트
+//  Member member = new Member();
+//  member.setNo(100);
+//  member.setName("오호라.. 그렇군요!");
+//  
+//  daoProxy.update(member);
+//  
+//  Member member2 = daoProxy.findBy(100);
+//  System.out.println(member2);
+  
+  
+//  // 삭제 테스트
+//  daoProxy.delete(100);
+//  System.out.println("삭제 완료!");
+  
+  
+}
 
 }
