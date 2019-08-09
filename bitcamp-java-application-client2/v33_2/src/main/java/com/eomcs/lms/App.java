@@ -1,4 +1,4 @@
-// client-v36_1 : DAO Proxy 클래스 대신 DBMS를 사용하는 DAO로 대체한다.
+// client-v33_2: Stateful 통신 방식을 Stateless 통신 방식으로 변경한다.
 package com.eomcs.lms;
 
 import java.io.ObjectInputStream;
@@ -11,12 +11,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+import com.eomcs.lms.client.BoardDaoProxy;
 import com.eomcs.lms.client.LessonDaoProxy;
 import com.eomcs.lms.client.MemberDaoProxy;
 import com.eomcs.lms.dao.BoardDao;
 import com.eomcs.lms.dao.LessonDao;
 import com.eomcs.lms.dao.MemberDao;
-import com.eomcs.lms.dao.mariadb.BoardDaoImpl;
 import com.eomcs.lms.handler.BoardAddCommand;
 import com.eomcs.lms.handler.BoardDeleteCommand;
 import com.eomcs.lms.handler.BoardDetailCommand;
@@ -51,7 +51,7 @@ public class App {
 
   private void service() {
     // Command 객체가 사용할 데이터 처리 객체를 준비한다.
-    BoardDao boardDao = new BoardDaoImpl();
+    BoardDao boardDao = new BoardDaoProxy(host, port);
     LessonDao lessonDao = new LessonDaoProxy(host, port);
     MemberDao memberDao = new MemberDaoProxy(host, port);
 
@@ -154,7 +154,12 @@ public class App {
   }
 
   public static void main(String[] args) {
-    App app = new App("", 8888);
+    if (args.length != 2) {
+      System.out.println(
+          "실행방법: java -Dfile.encoding=UTF-8 -cp bin/main com.eomcs.lms.App 서버주소 포트번호");
+      return;
+    }
+    App app = new App(args[0], Integer.parseInt(args[1]));
     app.service();
   }
 
