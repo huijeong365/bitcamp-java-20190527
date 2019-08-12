@@ -1,7 +1,6 @@
 package com.eomcs.lms.dao.mariadb;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -11,24 +10,25 @@ import com.eomcs.lms.domain.Board;
 
 public class BoardDaoImpl implements BoardDao {
 
+  Connection con;
+  
+  public BoardDaoImpl(Connection con) {
+    this.con = con;
+  }
+
   @Override
   public int insert(Board board) throws Exception {
-    try (Connection con = DriverManager.getConnection(
-        "jdbc:mariadb://localhost/bitcampdb?user=bitcamp&password=1111");
-        Statement stmt = con.createStatement()) {
+    try (Statement stmt = con.createStatement()) {
 
       return stmt.executeUpdate(
           "insert into lms_board(conts)"
               + " values('" + board.getContents() + "')");
-
     } 
   }
 
   @Override
   public List<Board> findAll() throws Exception {
-    try (Connection con = DriverManager.getConnection(
-        "jdbc:mariadb://localhost/bitcampdb?user=bitcamp&password=1111");
-        Statement stmt = con.createStatement();
+    try (Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery(
             "select * from lms_board order by board_id desc")) {
 
@@ -50,9 +50,7 @@ public class BoardDaoImpl implements BoardDao {
 
   @Override
   public Board findBy(int no) throws Exception {
-    try (Connection con = DriverManager.getConnection(
-        "jdbc:mariadb://localhost/bitcampdb?user=bitcamp&password=1111");
-        Statement stmt = con.createStatement();
+    try (Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery(
             "select * from lms_board where board_id=" + no)) {
 
@@ -77,9 +75,7 @@ public class BoardDaoImpl implements BoardDao {
 
   @Override
   public int update(Board board) throws Exception {
-    try (Connection con = DriverManager.getConnection(
-        "jdbc:mariadb://localhost/bitcampdb?user=bitcamp&password=1111");
-        Statement stmt = con.createStatement()) {
+    try (Statement stmt = con.createStatement()) {
 
       return stmt.executeUpdate("update lms_board set"
           + " conts='" + board.getContents()
@@ -89,9 +85,7 @@ public class BoardDaoImpl implements BoardDao {
 
   @Override
   public int delete(int no) throws Exception {
-    try (Connection con = DriverManager.getConnection(
-        "jdbc:mariadb://localhost/bitcampdb?user=bitcamp&password=1111");
-        Statement stmt = con.createStatement()) {
+    try (Statement stmt = con.createStatement()) {
 
       return stmt.executeUpdate("delete from lms_board where board_id=" + no);
     } 

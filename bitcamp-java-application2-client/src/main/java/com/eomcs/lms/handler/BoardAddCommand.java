@@ -1,5 +1,6 @@
 package com.eomcs.lms.handler;
 
+import java.sql.Date;
 import com.eomcs.lms.dao.BoardDao;
 import com.eomcs.lms.domain.Board;
 import com.eomcs.util.Input;
@@ -18,7 +19,9 @@ public class BoardAddCommand implements Command {
   public void execute() {
     Board board = new Board();
 
+    board.setNo(input.getIntValue("번호?"));
     board.setContents(input.getStringValue("내용? "));
+    board.setCreatedDate(new Date(System.currentTimeMillis()));
 
     try {
       boardDao.insert(board);
