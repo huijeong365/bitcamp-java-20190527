@@ -7,8 +7,8 @@ public class PlatformTransactionManager {
   
   private DataSource dataSource;
   
-  public PlatformTransactionManager(DataSource conFactory) {
-    this.dataSource = conFactory;
+  public PlatformTransactionManager(DataSource dataSource) {
+    this.dataSource = dataSource;
     
   }
   public void beginTransaction() throws Exception {

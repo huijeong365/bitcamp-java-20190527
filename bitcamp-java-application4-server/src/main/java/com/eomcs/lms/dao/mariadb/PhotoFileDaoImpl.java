@@ -14,8 +14,8 @@ public class PhotoFileDaoImpl implements PhotoFileDao {
 
   DataSource dataSource;
 
-  public PhotoFileDaoImpl(DataSource conFactory) {
-    this.dataSource = conFactory;
+  public PhotoFileDaoImpl(DataSource dataSource) {
+    this.dataSource = dataSource;
   }
 
   @Override

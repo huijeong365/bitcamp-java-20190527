@@ -14,8 +14,8 @@ public class PhotoBoardDaoImpl implements PhotoBoardDao {
 
   DataSource dataSource;
 
-  public PhotoBoardDaoImpl(DataSource conFactory) {
-    this.dataSource = conFactory;
+  public PhotoBoardDaoImpl(DataSource dataSource) {
+    this.dataSource = dataSource;
   }
 
   @Override

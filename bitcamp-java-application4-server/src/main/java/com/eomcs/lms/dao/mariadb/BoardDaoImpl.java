@@ -13,8 +13,8 @@ public class BoardDaoImpl implements BoardDao {
 
   DataSource dataSource;
 
-  public BoardDaoImpl(DataSource conFactory) {
-    this.dataSource = conFactory;
+  public BoardDaoImpl(DataSource dataSource) {
+    this.dataSource = dataSource;
   }
 
   @Override
