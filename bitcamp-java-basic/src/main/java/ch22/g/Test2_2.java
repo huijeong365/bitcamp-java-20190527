@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
 public class Test2_2 {
-  public static void main(String[] args) throws Exception{
+  public static void main(String[] args) throws Exception {
 
     FileInputStream in0 = new FileInputStream("temp/score.data");
     ObjectInputStream in = new ObjectInputStream(in0);

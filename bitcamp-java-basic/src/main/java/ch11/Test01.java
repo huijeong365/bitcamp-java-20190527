@@ -16,7 +16,7 @@ public class Test01 {
     if (s1 == s2)
       System.out.println("같다");
     else
-      System.out.println("다르다");// s1과 s2의 주소가 다르기 때문에 결과값은 "다르다"
+      System.out.println("다르다");
     
   }
 }

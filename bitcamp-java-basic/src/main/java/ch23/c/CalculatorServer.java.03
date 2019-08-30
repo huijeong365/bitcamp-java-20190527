@@ -19,11 +19,11 @@ public class CalculatorServer {
             BufferedReader in = new BufferedReader(
                 new InputStreamReader(socket.getInputStream()));
             PrintStream out = new PrintStream(socket.getOutputStream());) {
+          
           /*
           InetSocketAddress addr = (InetSocketAddress) socket.getRemoteSocketAddress();
           System.out.println(addr.getAddress());
           */
-          
           
           String[] input = in.readLine().split(" ");
           

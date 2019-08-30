@@ -12,11 +12,10 @@ public class Test01 {
     // Sorter 클래스처럼 서브 클래스에게 공통 필드나 기능을 상속해주는 용도로 만든 클래스인 경우
     // 직접 사용하지 못하게 abstract 클래스로 선언하면 
     // 다른 개발자가 잘못 사용하는 것을 막을 수 있다.
-
+    
   }
 
   static void display(Sorter sorter, int[] values) {
-    
     sorter.sort(values);
     for (int  value : values) {
       System.out.print(value + ",");

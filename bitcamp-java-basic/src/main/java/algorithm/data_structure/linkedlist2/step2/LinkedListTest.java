@@ -12,7 +12,7 @@ public class LinkedListTest {
     list.add("fff");
     list.add("ggg");
     
-    list.set(2, "xxx"); // "ccc" => "xxx"
+    list.set(2, "xxx"); // "ccc" -> "xxx"
     
     list.remove(3); // "ddd" 삭제
     list.remove(0); // "aaa" 삭제
@@ -32,11 +32,6 @@ public class LinkedListTest {
     for (Object obj : arr) {
       System.out.println(obj);
     }
-    
-//    for (int i = 0; i < list.size; i++) {
-//    Object value = list.get(i);
-//    System.out.println(value);
-//    }
   }
 
 }

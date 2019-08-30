@@ -33,7 +33,8 @@ public class Test10 {
     new Monitor8(50, 50); // OK!
     
     // 생성자가 원하는 타입의 원하는 개수의 값을 줘야 한다.
-    //new Monitor8 (2);  
+    //new Monitor8(3f, 2); // 컴파일 오류!
+    //new Monitor8(2); // 컴파일 오류!
   }
 }
 

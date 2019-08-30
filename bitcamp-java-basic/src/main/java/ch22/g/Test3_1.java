@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 
 public class Test3_1 {
 
-  public static void main(String[] args) throws Exception{
+  public static void main(String[] args) throws Exception {
     FileOutputStream out0 = new FileOutputStream("temp/score.data");
     ObjectOutputStream out = new ObjectOutputStream(out0);
 
@@ -18,7 +18,7 @@ public class Test3_1 {
     
     // 출력하기 전에 현재 Score3 인스턴스의 값을 출력해 보자!
     System.out.println(score);
-
+    
     // 인스턴스 출력하기
     // => 내부 필드의 값을 가지고 계산한 값을 보관하는 필드는 
     //    가능한 serialize 대상에서 제외해야 한다.

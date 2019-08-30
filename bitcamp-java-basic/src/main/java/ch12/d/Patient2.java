@@ -9,32 +9,31 @@ public class Patient2 {
   private int height;
   private int weight;
   private int gender;
-  
-  
+
   public String getName() {
     return name;
   }
-  
+
   public void setName(String name) {
     this.name = name;
   }
-  
+
   public int getAge() {
     return age;
   }
-  
+
   public void setAge(int age) {
     if (age > 0 && age < 150)
-    this.age = age;
+      this.age = age;
   }
-  
+
   public int getHeight() {
     return height;
   }
 
   public void setHeight(int height) {
     if (height > 0 && height < 300)
-    this.height = height;
+      this.height = height;
   }
 
   public int getWeight() {
@@ -43,7 +42,7 @@ public class Patient2 {
 
   public void setWeight(int weight) {
     if (weight > 0 && weight < 500)
-    this.weight = weight;
+      this.weight = weight;
   }
 
   public int getGender() {
@@ -52,11 +51,18 @@ public class Patient2 {
 
   public void setGender(int gender) {
     if (gender > 0 && gender < 3)
-    this.gender = gender;
+      this.gender = gender;
   }
 
   public String toString() {
-    return String.format("name=%s, age=%d, height=%d, weight=%d, gender=%d", this.name,  this.age, 
-        this.height, this.weight, this.gender);
+    return String.format("name=%s, age=%d, height=%d, weight=%d, gender=%d", 
+        this.name, this.age, this.height, this.weight, this.gender);
   }
 }
+
+
+
+
+
+
+

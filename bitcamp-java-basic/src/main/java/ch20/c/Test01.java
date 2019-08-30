@@ -24,6 +24,7 @@ public class Test01 {
     set.add(null);
     
     System.out.println(set.size());
+    
     // Set에 들어 있는 값 꺼내기
     // => 직접 값을 한 개씩 꺼내는 메서드가 없다.
     // => 꺼내주는 객체(iterator)의 도움을 받아야 한다.
@@ -68,7 +69,6 @@ public class Test01 {
     for (String value : values3) {
       System.out.println(value);
     }
-    
     
   }
 

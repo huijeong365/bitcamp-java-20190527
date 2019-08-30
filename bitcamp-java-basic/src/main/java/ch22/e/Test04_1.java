@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Test04_1 {
 
-  public static void main(String[] args) throws Exception{
+  public static void main(String[] args) throws Exception {
 
     ArrayList<Score> students = new ArrayList<>();
     students.add(new Score("홍길동", 100, 100, 100));
@@ -33,7 +33,7 @@ public class Test04_1 {
     out.flush();
 
     out.close();
-    
+
     System.out.println("출력 완료!");
   }
 

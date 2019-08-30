@@ -1,4 +1,4 @@
-// 예외 처리 연습 I - try ~ catch ~ 로 예외 처리하기
+// 예외 처리 연습 - try ~ catch ~ 로 예외 처리하기
 package ch21.g;
 
 import java.io.FileNotFoundException;
@@ -11,11 +11,11 @@ public class Test01_2 {
     FileReader in;
     
     try {
-      in = new FileReader("build.gradle"); 
-    } catch(FileNotFoundException e) {
-      System.out.println("해당 파일을 찾을수 없습니다.");
+      in = new FileReader("build.gradle");
+    } catch (FileNotFoundException e) {
+      System.out.println("해당 파일을 찾을 수 없습니다!");
     }
-  
+
   }
 
 }

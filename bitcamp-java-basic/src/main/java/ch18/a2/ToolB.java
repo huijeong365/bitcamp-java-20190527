@@ -18,3 +18,11 @@ public class ToolB implements Spec {
     System.out.println("ToolB.m1()");
   }
 }
+
+
+
+
+
+
+
+

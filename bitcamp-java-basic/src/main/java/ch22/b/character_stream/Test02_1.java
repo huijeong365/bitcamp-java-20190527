@@ -5,7 +5,7 @@ import java.io.FileWriter;
 
 public class Test02_1 {
 
-  public static void main(String[] args) throws Exception{
+  public static void main(String[] args) throws Exception {
 
     // FileWriter
     // => 문자 단위로 데이터를 출력하는 일을 한다.

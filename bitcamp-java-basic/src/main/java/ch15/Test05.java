@@ -42,7 +42,7 @@ class My5 {
     return true;
   }
   
-  
+
 }
 
 public class Test05 {

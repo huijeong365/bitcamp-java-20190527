@@ -6,8 +6,7 @@ import java.io.ObjectOutputStream;
 
 public class Test3_1 {
 
-  public static void main(String[] args) throws Exception{
-    
+  public static void main(String[] args) throws Exception {
     FileOutputStream out0 = new FileOutputStream("temp/score.data");
     ObjectOutputStream out = new ObjectOutputStream(out0);
 
@@ -22,7 +21,6 @@ public class Test3_1 {
     System.out.println("출력 완료!");
 
     out.close();
-
   }
 
 }

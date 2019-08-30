@@ -30,7 +30,6 @@ class Monitor6 {
     this.contrast = 50;
     this.widthRes = 2560;
     this.heightRes = 1200;
-    
   }
   
   public void on() {

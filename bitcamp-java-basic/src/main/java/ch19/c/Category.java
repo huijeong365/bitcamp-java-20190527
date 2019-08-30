@@ -13,6 +13,7 @@ public class Category {
   public static final int COMPUTER_RAM = 105;
   public static final int COMPUTER_VGA = 106;
   
+  
   public static final int COMPUTER_NOTEBOOK_13 = 111;
   public static final int COMPUTER_NOTEBOOK_15 = 112;
   public static final int COMPUTER_NOTEBOOK_17 = 113;

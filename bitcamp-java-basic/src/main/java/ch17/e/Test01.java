@@ -15,7 +15,6 @@ public class Test01 {
     // BubbleSort 인지, QuickSort 인지, MergeSort 인지 따질 필요 없이,
     // 그냥 서브 클래스가 구현한 sort()를 호출하면 된다.
     //
-    
     display(new BubbleSort(), values);
     display(new QuickSort(), values2);
     display(new MergeSort(), values3);

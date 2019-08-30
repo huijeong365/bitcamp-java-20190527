@@ -12,8 +12,8 @@ public class Test11_1 {
     Class<?> classInfo = obj1.getClass();
     
     // 클래스 정보로부터 다양한 값을 꺼낼 수 있다. 
-    System.out.println(classInfo.getName()); // 패키지 이름을 포함한 이름
-    System.out.println(classInfo.getSimpleName()); // 패키지 이름을 뺀 이름
+    System.out.println(classInfo.getName());
+    System.out.println(classInfo.getSimpleName());
   }
 }
 

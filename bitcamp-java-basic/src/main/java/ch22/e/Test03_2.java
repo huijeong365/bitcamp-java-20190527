@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Test03_2 {
 
-  public static void main(String[] args) throws Exception{
+  public static void main(String[] args) throws Exception {
 
     // score.data 파일에서 세 학생의 데이터를 읽어 Score 인스턴스로 생성하라.
     // => java.io.BufferedInputStream 클래스를 사용하라.

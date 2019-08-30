@@ -7,7 +7,6 @@ public class Test03_2 {
   public static void main(String[] args) throws Exception {
 
     // 파일의 바이너리 데이터를 읽어 배열에 저장한다.
-
     FileInputStream in = new FileInputStream("data.bin");
 
     // 데이터를 저장할 바이트 배열을 준비한다.

@@ -13,7 +13,4 @@ public class CharacterCountListener implements CharacterListener {
   public void displayResult() {
     System.out.printf("총 문자 개수: %d\n", count);
   }
-  
-  
-  
 }

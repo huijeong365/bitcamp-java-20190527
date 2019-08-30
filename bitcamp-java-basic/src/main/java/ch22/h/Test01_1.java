@@ -5,10 +5,10 @@ import java.io.FileOutputStream;
 
 public class Test01_1 {
   public static void main(String[] args) throws Exception {
-    FileOutputStream out = new FileOutputStream("temp/data.bin");
+    FileOutputStream out = new FileOutputStream("temp3/data.bin");
 
     out.write(0x55);
-
+    
     out.close();
 
     System.out.println("출력 완료!");

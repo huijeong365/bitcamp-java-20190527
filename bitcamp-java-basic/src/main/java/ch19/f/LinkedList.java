@@ -165,8 +165,8 @@ public class LinkedList {
     }
   }
   
-  // Node 클래스는 LinkedList의 특정 인스턴스와 관계가 없다.
-  // 따라서 위에서 정의한 Array 중첩 클래스와 다르게
+  // Node 클래스는 바깥 클래스(LinkedList)의 특정 인스턴스와 관계가 없다.
+  // 따라서 위에서 정의한 Array 중첩 클래스와 다르게 
   // static nested class 로 선언한다.
   private static class Node {
     public Object value;

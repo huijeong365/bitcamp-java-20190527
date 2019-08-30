@@ -19,7 +19,6 @@ public class Test14 {
     String s3 = new String(chars); // char 배열로 String 인스턴스 생성
     System.out.printf("s3=%s\n", s3);
     
-    
     byte[] bytes = {(byte)0xb0, (byte)0xa1, (byte)0xb0, (byte)0xa2, 
             0x30, 0x31, 0x32, 0x41, 0x42, 0x43};
     // 문자 코드 값이 저장된 바이트 배열로 String 인스턴스 생성        

@@ -5,19 +5,19 @@ import java.io.FileOutputStream;
 
 public class Test01_2 {
   public static void main(String[] args) {
-    // 1~100 중에서 짝수만 바이트 배열에 넣어 보자!
-
-    // 1) 값을 출력할 파일 출력 객체 준비.
+    // 1 ~ 100 중에서 짝수만 파일에 출력해 보자!
+    
+    //1) 값을 출력할 파일 출력 객체 준비
     try (FileOutputStream out = new FileOutputStream("temp/data.bin")) {
-
-      // 2) 짝수를 파일에 출력한다.
-      for (int i = 0; i <= 100; i++) {
+      
+      //2) 짝수를 파일에 출력한다.
+      for (int i = 1; i <= 100; i++) {
         if (i % 2 == 0)
           out.write(i);
       }
       
-      System.out.println("출력완료!");
-
+      System.out.println("출력 완료!");
+      
     } catch (Exception e) {
       System.out.println("파일 출력 예외 발생!");
       e.printStackTrace();

@@ -3,7 +3,7 @@ package ch21.c;
 
 public class Test03_1 {
 
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args) throws Exception { // main()의 호출자? JVM이다.
     // Exception 계열의 예외 처리 방법
     // 1) try ~ catch로 예외 받기
     //    try {
@@ -30,7 +30,7 @@ public class Test03_1 {
   
   static int divide(int a, int b) throws Exception {
     if (b == 0)
-      throw new Exception("0으로 나눌수 없습니다.");
+      throw new Exception("0으로 나눌 수 없습니다.");
     return a / b;
   }
 

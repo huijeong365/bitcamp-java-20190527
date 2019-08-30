@@ -12,11 +12,11 @@ public class BufferedOutputStream extends DecoratorOutputStream {
   public BufferedOutputStream(OutputStream other) throws FileNotFoundException {
     super(other);
   }
-  
+
   @Override
   public void write(int b) throws IOException {
     buf[size++] = (byte)b;
-    
+
     if (size >= buf.length) { // 배열이 꽉 찼으면 파일로 출력한다.
       other.write(buf); // 실제 출력할 때 생성자에서 받은 OutputStream 객체에게 맡겨야 한다.
       size = 0;
@@ -33,3 +33,12 @@ public class BufferedOutputStream extends DecoratorOutputStream {
   }
 
 }
+
+
+
+
+
+
+
+
+

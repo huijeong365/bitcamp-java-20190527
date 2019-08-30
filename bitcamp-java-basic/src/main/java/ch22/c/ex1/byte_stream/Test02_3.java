@@ -1,12 +1,11 @@
-// 데터 출력에서 버퍼 사용 - 버퍼 기능을 대신 수행해주는 BufferedOutputStream 사용하기
+// 데이터 출력에서 버퍼 사용 - 버퍼 기능을 대신 수행해주는 BufferedOutputStream 사용하기
 package ch22.c.ex1.byte_stream;
 
 public class Test02_3 {
-  public static void main(String[] args) throws Exception{
+  public static void main(String[] args) throws Exception {
 
-    BufferedOutputStream out = null;
+    BufferedOutputStream out = new BufferedOutputStream("temp/data.bin");
 
-    out = new BufferedOutputStream("temp/data.bin");
     System.out.println("데이터 쓰는 중...");
 
     long start = System.currentTimeMillis();
@@ -20,7 +19,7 @@ public class Test02_3 {
       // 속도는 이 클래스가 더 빠르다.
     }
 
-    // BufferedOutputStream은 바이트 배열이 꽉 찼을 때만 파일로 출력하기 때문에
+    // BufferedOutputStream은 바이트 배열이 꽉 찼을 때만 파일로 출력하기 때문에 
     // 바이트 배열에 데이터가 남아 있을 경우 강제적으로 출력해야 한다. 
     out.flush(); // 버퍼에 남아 있는 것을 방출한다.
 

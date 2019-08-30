@@ -9,27 +9,26 @@ public class Patient3 {
   private int height;
   private int weight;
   private int gender;
-  
-  
+
   public String getName() {
     return name;
   }
-  
+
   public void setName(String name) {
     this.name = name;
   }
-  
+
   public int getAge() {
     return age;
   }
-  
+
   public void setAge(int age) {
     if (age > 0 && age < 150)
       this.age = age;
     else
       throw new RuntimeException("나이가 유효하지 않습니다!");
   }
-  
+
   public int getHeight() {
     return height;
   }
@@ -38,7 +37,7 @@ public class Patient3 {
     if (height > 0 && height < 300)
       this.height = height;
     else
-      throw new RuntimeException("키게가 유효하지 않습니다!");
+      throw new RuntimeException("키가 유효하지 않습니다!");
   }
 
   public int getWeight() {
@@ -64,7 +63,14 @@ public class Patient3 {
   }
 
   public String toString() {
-    return String.format("name=%s, age=%d, height=%d, weight=%d, gender=%d", this.name,  this.age, 
-        this.height, this.weight, this.gender);
+    return String.format("name=%s, age=%d, height=%d, weight=%d, gender=%d", 
+        this.name, this.age, this.height, this.weight, this.gender);
   }
 }
+
+
+
+
+
+
+

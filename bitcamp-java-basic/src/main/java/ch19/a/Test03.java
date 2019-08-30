@@ -1,18 +1,18 @@
 // 중첩 클래스 사용 I : static nested class와 inner 클래스 사용
 package ch19.a;
 
-class X{
-  
+class X {
+   
   static class A {}
   
-  class B{}
+  class B {}
   
   static void m1() {
-    // 같은 스태틱 멤버 이기 때문에 static nested class를 바로 사용 할 수 있다.
+    // 같은 스태틱 멤버이기 때문에 static nested class를 바로 사용할 수 있다.
     A obj = new A();
     
-    // 스태틱 멤버는 인스턴스 멤버로 바로 사용할 수 없다.
-    B obj2; //레퍼런스를 선언할 때는 바로 사용할 수 있다.
+    // 스태틱 멤버는 인스턴스 멤버를 바로 사용할 수 없다.
+    B obj2; // 레러펀스를 선언할 때는 바로 사용할 수 있다.
     //obj2 = new B(); // 컴파일 오류!
     
     // 컴파일 오류가 발생한 이유?
@@ -25,31 +25,31 @@ class X{
     X x = new X();
     x.m2(); // OK!
     
-    // 당연히 인스턴스 주소만 있다면 X의 inner 클래스인 B객체로 생성할 수 있다.
-    obj2 = x.new B(); // 실무에서는 이렇게 외부의 인스턴스를 가지로 inner 클래스를 생성하는
+    // 당연히 인스턴스 주소만 있다면 X의 inner 클래스인 B 객체로 생성할 수 있다.
+    obj2 = x.new B(); // 실무에서는 이렇게 외부의 인스턴스를 가지로 inner 클래스를 생성하는 
                       // 방식을 거의 사용하지 않는다. 그냥 참고만 하라!
-        
     
   }
+ 
   void m2() {
     // 인스턴스 멤버에서 static nested class 와 inner 클래스 사용하기
     
     // 스태틱 멤버는 인스턴스 멤버에서도 자유롭게 사용할 수 있다.
-    // 즉 다음과 같이 인스턴스 메서드에서 스태틱 메서드를 자유롭게 출하듯이,
+    // 즉 다음과 같이 인스턴스 메서드에서 스태틱 메서드를 자유롭게 호출하듯이,
     m1(); // OK!
     
     // 인스턴스 메서드에서 static nested class를 바로 사용할 수 있다.
     A obj = new A();
     
     // 인스턴스 메서드에서 다른 인스턴스 멤버를 자유롭게 사용하듯이
-    this.a= 100;
+    this.a = 100;
     a = 100; // this 생략 가능
     
     this.m3();
-    m3(); // this 생략가능
-
+    m3(); // this 생략 가능
+    
     B obj2 = this.new B();
-    obj2 = new B(); // this 생략가능
+    obj2 = new B(); // this 생략 가능
   }
   
   int a;
@@ -67,14 +67,12 @@ public class Test03 {
     X.B obj2;
     
     // X의 inner 클래스를 사용하려면 반드시 X의 인스턴스가 있어야 한다.
-    // obj2 = new X.B(); // 컴파일 오류!
-    // obj2 = new B(); // 컴파일 오류!
+    //obj2 = new X.B(); // 컴파일 오류!
+    //obj2 = new B(); // 컴파일 오류!
     
     X x = new X();
-    obj2 = x.new B(); // OK
-    
+    obj2 = x.new B(); // OK!
   }
-
 
 }
 

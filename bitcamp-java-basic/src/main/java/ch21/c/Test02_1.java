@@ -21,19 +21,20 @@ public class Test02_1 {
     // '방법1' 적용
     // => try ~ catch 로 예외 처리하기
     try {
-     int result = divide(100, 2);
-     System.out.println(result);
+      int result = divide(100, 0);
+      System.out.println(result);
       
     } catch (Exception e) {
       System.out.println("계산 오류!");
     }
     
     System.out.println("종료!");
+
   }
   
   static int divide(int a, int b) throws Exception {
     if (b == 0)
-      throw new Exception("0으로 나눌수 없습니다.");
+      throw new Exception("0으로 나눌 수 없습니다.");
     return a / b;
   }
 

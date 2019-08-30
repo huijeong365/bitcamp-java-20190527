@@ -1,4 +1,3 @@
-
 // main() 메서드의 파라미터 
 package ch06;
 

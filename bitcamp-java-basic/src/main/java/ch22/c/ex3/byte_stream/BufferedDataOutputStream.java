@@ -22,7 +22,7 @@ public class BufferedDataOutputStream extends BufferedOutputStream {
     write(value >> 8);
     write(value);
   }
-  
+
   public void writeLong(long value) throws IOException {
     write((int)(value >> 56));
     write((int)(value >> 48));
@@ -39,16 +39,16 @@ public class BufferedDataOutputStream extends BufferedOutputStream {
     // String 인스턴스에 보관된 문자열을 바이트 배열로 꺼낸다.
     byte[] bytes = str.getBytes("UTF-8");
     
-    // 먼저 출력할 바이트의 개수를 쓴다.
-    // 문자열을 출력할 때 한번에 32767 바이트만 출력하게 한다.
+    // 먼저 출력할 바이트의 개수를 쓴다. 
+    // 문자열을 출력할 때 한 번에 32767 바이트만 출력하게 한다. 
     writeShort(bytes.length);
     
-    // 그리고 문자열의 UTF-8 코드 값이  들어 있는 바이트 배열을 출력한다.
+    // 그리고 문자열의 UTF-8 코드 값이 들어 있는 바이트 배열을 출력한다.
     for (int i = 0; i < bytes.length; i++) {
       write(bytes[i]);
     }
   }
-
+  
   public void writeBoolean(boolean value) throws IOException {
     if (value) {
       write(1);
@@ -57,7 +57,6 @@ public class BufferedDataOutputStream extends BufferedOutputStream {
     }
   }
 }
-
 
 
 

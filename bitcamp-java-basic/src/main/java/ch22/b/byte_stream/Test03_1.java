@@ -5,9 +5,8 @@ package ch22.b.byte_stream;
 import java.io.FileOutputStream;
 
 public class Test03_1 {
-  public static void main(String[] args) throws Exception{
+  public static void main(String[] args) throws Exception {
     // 배열 단위로 출력하기
-
     // 주의!
     // => 기존의 파일을 덮어쓴다.
     FileOutputStream out = new FileOutputStream("data.bin");

@@ -30,11 +30,12 @@ public class Test07 {
     map.put("ccc", new Student("안중근", 25));
     
     Set<String> keySet = map.keySet();
+    
     // Set에서 값을 꺼내기 위해 Iterator의 도움을 받는다.
     Iterator<String> iterator = keySet.iterator();
     
     System.out.println(iterator.next());
-    System.out.println("-------------------------");
+    System.out.println("---------------------------");
     
     map.put("bba", new Student("bba", 20));
     map.put("bbc", new Student("bbc", 20));
@@ -43,11 +44,12 @@ public class Test07 {
     // 더이상 Iterator는 유효하지 않게 된다. 
     // 따라서 다음과 같이 Iterator를 사용하려 하면 실행 오류가 발생한다.
     // 해결책?
-    
-    
     // => 값을 변경하면 다시 Iterator를 얻어야 한다.
-    // 다음과 같이 key가 들어있는 목록에서 key를 꺼내 줄 Iterator를 다시 리턴받아야 한다.
-    //System.out.println(iterator.next());
+    // 
+    
+    // 다음과 같이 key가 들어있는 목록에서 key를 꺼내 줄 Iterator를 다시 리턴 받아야 한다. 
+    //
+    //iterator = keySet.iterator();
     
     while (iterator.hasNext()) {
       System.out.println(iterator.next());

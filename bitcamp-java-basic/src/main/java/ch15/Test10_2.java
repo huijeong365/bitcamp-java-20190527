@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Test10_2 {
   public static void main(String[] args) {
-    HashMap<String,Student> map = new HashMap<String,Student>();
+    HashMap<String,Student> map = new HashMap<>();
     
     String k1 = new String("ok");
     String k2 = new String("no");
@@ -26,7 +26,7 @@ public class Test10_2 {
     // k3랑 같은 문자열을 갖는 String key를 생성한다.
     String k6 = new String("haha");
 
-    // k3랑 k6는 서로 다은 인스턴스이다.
+    // k3랑 k6는 서로 다른 인스턴스이다.
     System.out.println(k3 == k6); 
     
     // 그러나 문자열은 같다.
@@ -34,10 +34,10 @@ public class Test10_2 {
     System.out.println(k3.hashCode()); // hash code는 같다.
     System.out.println(k6.hashCode()); // hash code는 같다.
     
-    // 또한 문자열이 같을 경우 equals()의 리턴 값이 true가 되도록 오버라이딩 하였다.
+    // 또한 문자열이 같을 경우 equals()의 리턴 값이 true가 되도록 오버라이딩 하였다. 
     System.out.println(k3.equals(k6)); // equals()의 비교 결과도 같다.
     
-    // 즉, k3와 k6는 서로 다른 인스턴스 이지만, 
+    // 즉 k3와 k6는 서로 다른 인스턴스 이지만, 
     // hashCode()의 리턴 값이 같고, equals()의 리턴 값이 true이기 때문에 
     // 두 객체는 같은 key로 간주한다.
     // 그래서 k3로 저장된 값을 k6로 꺼낼 수 있다.
@@ -45,10 +45,11 @@ public class Test10_2 {
     
     // 자바는 문자열에 대해 대소문자를 구분하기 때문에 "haha"와 "Haha"는 다른 객체로 취급한다.
     // 당연히 hashCode()의 리턴 값이 다르고, equals()의 리턴 값은 false 이다.
-    // 그래서 k3와 k7은 같은 키가 아니다.
+    // 그래서 k7은 k3와 같은 key가 아니다.
     String k7 = new String("Haha"); 
     System.out.println(map.get(k7));
   }
+
 }
 
 

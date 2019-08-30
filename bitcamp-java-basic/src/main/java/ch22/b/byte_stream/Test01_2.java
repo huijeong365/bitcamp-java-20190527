@@ -9,7 +9,6 @@ public class Test01_2 {
 
     // 파일의 바이너리 데이터 읽기
     // => FileInputStream 클래스를 사용한다.
-
     // 1) 데이터를 읽기를 담당할 객체를 생성한다.
     FileInputStream in = new FileInputStream("data.bin");
 

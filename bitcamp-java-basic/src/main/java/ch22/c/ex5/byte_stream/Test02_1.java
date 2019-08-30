@@ -11,7 +11,7 @@ public class Test02_1 {
     // 실제 파일에 출력을 수행하는 객체를 준비한다.
     FileOutputStream other = new FileOutputStream("temp/data.bin");
     
-    // 위 객체에 먼저 버퍼링 기능을 붙인디ㅏ.
+    // 위 객체에 먼저 버퍼링 기능을 붙인다.
     BufferedOutputStream other2 = new BufferedOutputStream(other);
     
     // 위 데코레이터 객체에 다시 primitive 타입의 값을 출력하는 데코레이터 객체를 붙인다.
@@ -22,9 +22,10 @@ public class Test02_1 {
     long l = 0x1122334455667788L;
     String str = "ABC가각간";
     boolean b = true;
-    
+
     System.out.println("출력 시작...");
     long start = System.currentTimeMillis();
+    
     for (int cnt = 0; cnt < 100000; cnt++) {
       out.writeShort(s);
       out.writeInt(i);

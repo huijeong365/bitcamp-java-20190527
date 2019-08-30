@@ -1,4 +1,4 @@
-// static nested class 사용 후
+// static nested class 사용 후 
 package ch19.d;
 
 public class Test01 {

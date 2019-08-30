@@ -42,7 +42,6 @@ public class Test09_2 {
         return false;
       return true;
     }
-    
   }
   public static void main(String[] args) {
     HashMap<MyKey2,Student> map = new HashMap<>();
@@ -53,7 +52,6 @@ public class Test09_2 {
     MyKey2 k4 = new MyKey2("ohora");
     MyKey2 k5 = new MyKey2("hul");
     
-  
     map.put(k1, new Student("홍길동", 20, false));
     map.put(k2, new Student("임꺽정", 30, true));
     map.put(k3, new Student("유관순", 17, true));
@@ -77,7 +75,6 @@ public class Test09_2 {
     // HashMap 클래스에서는 서로 같은 key라고 간주한다.
     
     System.out.println(map.get(k6));
-    
   }
 }
 

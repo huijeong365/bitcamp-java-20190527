@@ -5,7 +5,7 @@ package ch22.c.ex1.byte_stream;
 import java.io.FileInputStream;
 
 public class Test01_1 {
-  public static void main(String[] args) throws Exception{
+  public static void main(String[] args) throws Exception {
 
     FileInputStream in = new FileInputStream("temp/jls12.pdf");
 
@@ -17,7 +17,7 @@ public class Test01_1 {
     int count = 0;
     while ((b = in.read()) != -1) {
       count++;
-      // 1바이트를 읽었으면 암호화 한다고 가정하자.
+      // 1바이트를 읽었으면 암호화한다고 가정하자!
       // 그러면 여기에 그 암호화하는 코드를 작성해야 한다.
     }
 

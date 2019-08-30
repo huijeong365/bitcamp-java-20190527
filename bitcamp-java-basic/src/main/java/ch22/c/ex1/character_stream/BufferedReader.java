@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 // 상속을 이용한 기능 추가
-// 기존의 FileInputStream에 버퍼링 기능을 추가하기
+// => 기존의 FileReader에 버퍼링 기능을 추가하기
 public class BufferedReader extends FileReader {
   
   char[] buf = new char[8192];
@@ -18,7 +18,7 @@ public class BufferedReader extends FileReader {
   
   @Override
   public int read() throws IOException {
-    if (cursor >= size) {
+    if (cursor >= size) { 
       count++;
       size = read(buf); 
       if (size == -1) 

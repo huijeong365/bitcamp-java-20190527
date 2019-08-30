@@ -21,7 +21,7 @@ public class Test01 {
     s1.setWorking(true);
     s1.setAge(20);
     System.out.println(s1);
-    System.out.println("-----------------------------------");
+    System.out.println("---------------------------");
     
     // 생성자를 통해 인스턴스를 생성하라!
     // => 기본 생성자 꺼내기
@@ -29,7 +29,7 @@ public class Test01 {
     Constructor<Student> c1 = (Constructor<Student>) clazz.getConstructor();
     Student s2 = c1.newInstance();
     System.out.println(s2 != null);
-    System.out.println("-----------------------------------");
+    System.out.println("----------------------------");
     
     // => 파라미터를 받는 생성자 꺼내기
     @SuppressWarnings("unchecked")

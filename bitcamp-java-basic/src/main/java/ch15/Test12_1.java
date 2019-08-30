@@ -11,7 +11,7 @@ public class Test12_1 {
     int eng;
     int math;
     int sum;
-    float aver; 
+    float aver;
     
     public Score() {}
     
@@ -43,7 +43,7 @@ public class Test12_1 {
     // s1과 s2는 서로 다른 인스턴스이다.
     System.out.println(s1 == s2);
     
-    // s1과 s2에 들어있는 값은 같다.
+    // s1과 s2에 들어 있는 값은 같다.
     System.out.println(s1);
     System.out.println(s2);
     
@@ -51,8 +51,8 @@ public class Test12_1 {
     // Object에서 상속 받은 clone()을 호출한다.
     //Score s3 = s1.clone(); // 컴파일 오류!
     
-    // Object에서 상속 받은 clone()은 protected 이다.
-    // 따라서 같은 패키지에 소속된 클래스 이거나 상속 받은 서브 클래스가 아니면  호출할 수 없다.
+    // Object에서 상속 받은 clone()은 protected 이다. 
+    // 따라서 같은 패키지에 소속된 클래스이거나 상속 받은 서브 클래스가 아니면 호출할 수 없다.
     
     // 해결책:
     // => Object에서 상속 받은 clone()을 오버라이딩 하라!

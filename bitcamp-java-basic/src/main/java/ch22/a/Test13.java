@@ -16,18 +16,18 @@ public class Test13 {
   }
   
   static void delete(File path) {
-    // 1) 파라미터로 넘어온 파일 객체가 파일이라면 삭제한다.
+    // 1) 파라미터로 넘어 온 파일 객체가 파일이라면 삭제하고 리턴한다.
     if (path.isFile()) {
       path.delete();
       return;
     }
     
-    // 2) 디렉토리 라면 하위 디렉토리나 파일 목록을 얻는다.
+    // 2) 디렉토리라면 하위 디렉토리나 파일 목록을 얻는다.
     File[] files = path.listFiles();
     
     // 3) 하위 디렉토리나 파일을 삭제한다.
     for (File file : files) {
-        delete(file);
+      delete(file);
     }
     
     // 4) 현재의 디렉토리를 삭제한다.

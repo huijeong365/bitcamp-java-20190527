@@ -1,5 +1,4 @@
 // 인스턴스 배열?
-
 package ch07;
 
 public class Test08 {

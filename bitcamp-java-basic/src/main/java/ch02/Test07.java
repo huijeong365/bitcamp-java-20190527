@@ -17,7 +17,7 @@ public class Test07 {
     // => 참고! 숫자 2바이트의 범위는 -32768 ~ 32767 이다.
     System.out.println((char)0xac00);
     
-    long v = '흥';//흥 이라는 문자의 코드값을 보여달라.
+    long v = '흥';
     System.out.println(v);
     System.out.println((char)v);
     System.out.println('흥');

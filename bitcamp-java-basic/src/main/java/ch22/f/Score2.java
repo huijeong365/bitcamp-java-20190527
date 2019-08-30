@@ -38,7 +38,6 @@ public class Score2 implements Serializable {
         + math + ", sum=" + sum + ", aver=" + aver + "]";
   }
 
-  //Test2_1을 실행하여 Score2 값을 출력한 후 tel 필드의 getter/setter를 추가하라. 
   public String getTel() {
     return tel;
   }
@@ -46,7 +45,7 @@ public class Score2 implements Serializable {
   public void setTel(String tel) {
     this.tel = tel;
   }
-  
+
   public String getName() {
     return name;
   }

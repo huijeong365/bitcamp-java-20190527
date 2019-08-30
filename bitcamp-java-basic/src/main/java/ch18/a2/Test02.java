@@ -5,12 +5,12 @@ public class Test02 {
 
   public static void main(String[] args) {
     // 도구 사용하기
-
+    
     // Spec 규칙(interface)에 따라 만든 도구(클래스)를 use() 메서드에 넘긴다.
     use(new ToolA());
     use(new ToolB());
   }
-
+  
   static void use(Spec tool) {
     // 파라미터 tool에 넘어오는 객체는 Spec 규칙에 따라 만든 객체일 것이다.
     // Spec 규칙에 따라 만든 도구를 사용할 때는 
@@ -20,3 +20,10 @@ public class Test02 {
   }
 
 }
+
+
+
+
+
+
+

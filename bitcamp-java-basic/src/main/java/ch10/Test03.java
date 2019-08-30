@@ -30,7 +30,7 @@ public class Test03 {
     // 모니터 인스턴스 생성
     Monitor1 m1 = new Monitor1();
     
-    // 출력 결과는 모두 0이다.
+    // 출력결과는 모두 0이다.
     m1.display();
     
     // 모니터의 중요 필드 값을 초기화시키지 않고 사용하면 제대로 동작이 안 될 수 있다.
@@ -42,12 +42,13 @@ public class Test03 {
     // 모니터의 인스턴스 필드의 값을 유효한 값으로 설정해야 한다.
     // 그래야 모니터의 기능(funciton=method)을 제대로 사용할 수 있다.
     // 
+    
     // 다음은 모니터 인스턴스를 만든 후 에 모니터 인스턴스를 사용하는 사용자가 
     // 직접 값을 초기화시킨 후 사용하는 예이다.
     m1.bright = 50;
     m1.contrast = 50;
     m1.widthRes = 1920;
-    m1.heightRes = 1080;
+    m1.bright = 1080;
     
     m1.display();
     

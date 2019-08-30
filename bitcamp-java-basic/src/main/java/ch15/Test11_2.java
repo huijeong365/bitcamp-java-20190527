@@ -4,7 +4,6 @@ package ch15;
 public class Test11_2 {
   public static void main(String[] args) {
     String obj1 = new String();
-    
     Class<?> classInfo = obj1.getClass();
     System.out.println(classInfo.getName()); // java.lang.String
     
@@ -30,7 +29,6 @@ public class Test11_2 {
     System.out.println(new long[10].getClass().getName()); //[J
     System.out.println(new char[10].getClass().getName()); //[C
     System.out.println(new boolean[10].getClass().getName()); //[Z
-    
   }
 }
 

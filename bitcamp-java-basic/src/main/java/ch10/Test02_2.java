@@ -1,10 +1,10 @@
-// 인스턴스 멤버 : 인스턴스 초기화 블록
+// 인스턴스 멤버 : 인스턴스 초기화 블록 
 package ch10;
 
 class My2 {
   //1) 인스턴스 필드
   int a = 100;
-  // int a <-- 필드선언
+  // int a  <-- 필드 선언 
   // a = 100 <-- 필드의 초기 값을 설정하는 문장(초기화 문장)
   
   //2) 인스턴스 블록
@@ -25,8 +25,8 @@ class My2 {
 
 public class Test02_2 {
   public static void main(String[] args) {
-    My2 boj = new My2();
-   
+    My2 obj = new My2();
+    System.out.println(obj.a);
   }
 }
 

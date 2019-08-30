@@ -1,11 +1,9 @@
 // Object 클래스 - clone() : shallow copy
 package ch15;
  
-// clone()은 인스턴스를 복제할 때 호출하는 메서드이다.
-
 public class Test13_1 {
   
-  static class Engine implements Cloneable{
+  static class Engine implements Cloneable {
     int cc;
     int valve;
     
@@ -20,7 +18,7 @@ public class Test13_1 {
     }
 
     @Override
-    protected Engine clone() throws CloneNotSupportedException {
+    public Engine clone() throws CloneNotSupportedException {
       return (Engine) super.clone();
     }
   }
@@ -35,8 +33,7 @@ public class Test13_1 {
       this.name = name;
       this.engine = engine;
     }
-    
-    
+
     @Override
     public String toString() {
       return "Car [maker=" + maker + ", name=" + name + ", engine=" + engine + "]";
@@ -49,7 +46,6 @@ public class Test13_1 {
   }
   
   public static void main(String[] args) throws Exception {
-    
     Engine engine = new Engine(3000, 16);
     Car car = new Car("비트자동차", "비트비트", engine);
     
@@ -63,10 +59,10 @@ public class Test13_1 {
     
     // clone()은 해당 객체의 필드 값만 복제한다.
     // 그 객체가 포함하고 있는 하위 객체는 복제하지 않는다.
-    // "shallow copy"(얕은복제) 라 부른다.
+    // "shallow copy(얕은 복제)"라 부른다.
     //
-    // 그 객체가 포함하고 있는 하위 객체까지 복제하는 것을
-    // "deep copy"라 부른다.
+    // 그 객체가 포함하고 있는 하위 객체까지 복제하는 것을 
+    // "deep copy(깊은 복제)"라 부른다.
     // deep copy는 개발자가 직접 clone() 메서드 안에 
     // deep copy를 수행하는 코드를 작성해야 한다.
   }

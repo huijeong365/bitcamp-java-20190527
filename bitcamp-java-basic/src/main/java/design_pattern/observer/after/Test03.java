@@ -10,7 +10,7 @@ public class Test03 {
     
     // 새 옵저버를 추가로 등록한다.
     car.addObserver(new EngineOilCarObserver());
-    
+
     car.start();
     car.run();
     car.stop();

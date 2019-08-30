@@ -12,11 +12,11 @@ public class BufferedOutputStream extends FileOutputStream {
   public BufferedOutputStream(String name) throws FileNotFoundException {
     super(name);
   }
-  
+
   @Override
   public void write(int b) throws IOException {
     buf[size++] = (byte)b;
-    
+
     if (size >= buf.length) { // 배열이 꽉 찼으면 파일로 출력한다.
       write(buf);
       size = 0;
@@ -33,3 +33,12 @@ public class BufferedOutputStream extends FileOutputStream {
   }
 
 }
+
+
+
+
+
+
+
+
+

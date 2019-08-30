@@ -49,8 +49,6 @@ public class Test05 {
   // 예4) 견본 배열의 타입 정보를 가지고 배열을 생성하기
   @SuppressWarnings("unchecked")
   static <T> T[] create4(T[] arr) {
-    // copyOf(original, newLength)
-    // => 원래 배열(original)과 같은 타입의 배열을 배열크기(newLength)에 맞춰 새로 생성한다.
     return (T[]) Array.newInstance(arr.getClass(), 10);
   }
   

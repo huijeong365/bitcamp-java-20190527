@@ -16,7 +16,7 @@ public class Account {
     // 2) 크리티컬 섹션에 동시에 접근하지 못하게 하는 기법을 
     // "뮤텍스(mutex)" 또는 "세마포어(1)(semaphore)"라 부른다.
     // 3) 자바에서 뮤텍스를 구현하는 방법
-    // => 크리티컬 섹션에 해당하는 메서드나 코드 블록에 synchronized 키워드를 붙여 
+    // => 크리티컬 섹션에 해당하는 메서드나 코드 블록에 sychronized 키워드를 붙여 
     //    한 번에 한 스레드만 진입할 수 있도록 lock을 건다.
     // 
     double temp = this.balance;

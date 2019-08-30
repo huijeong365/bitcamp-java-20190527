@@ -1,8 +1,6 @@
 // Object 클래스 - clone() 사용법 III
 package ch15;
  
-// clone()은 인스턴스를 복제할 때 호출하는 메서드이다.
-
 public class Test12_3 {
   
   // 인스턴스 복제 기능을 활성화하려면 Cloneable 인터페이스를 구현해야 한다.
@@ -47,9 +45,9 @@ public class Test12_3 {
     Score s1 = new Score("홍길동", 100, 100, 100);
     Score s2 = s1.clone(); // 이제 예외가 발생하지 않는다!
     // 복제 실행 오류가 발생하지 않는 이유?
-    // => Score 클래스의 복제 기능을 활성화 시켰기 때문이다.
-    //     class Score implements Cloneable {...}
-    
+    // => Score 클래스의 복제 기능을 활성화시켰기 때문이다.
+    //    class Score implements Cloneable {...}
+    //
     System.out.println(s1 == s2);
     System.out.println(s1);
     System.out.println(s2);
