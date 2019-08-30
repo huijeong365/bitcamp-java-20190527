@@ -62,17 +62,16 @@ public class App {
   
   SqlSessionFactory sqlSessionFactory;
   
-  
   public App() throws Exception {
 
     // 처음에는 클라이언트 요청을 처리해야 하는 상태로 설정한다.
     state = CONTINUE;
     
     try {
-      // 커넥션 관리자를 준비한다.
       InputStream inputStream = 
           Resources.getResourceAsStream("com/eomcs/lms/conf/mybatis-config.xml");
-      sqlSessionFactory = new SqlSessionFactoryProxy (new SqlSessionFactoryBuilder().build(inputStream));
+      sqlSessionFactory =new SqlSessionFactoryProxy(
+          new SqlSessionFactoryBuilder().build(inputStream));
       
       // 트랜잭션 관리자를 준비한다.
       PlatformTransactionManager txManager = 

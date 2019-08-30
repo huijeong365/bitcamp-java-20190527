@@ -10,7 +10,9 @@ public class Test02 {
 
   public static void main(String[] args) {
     
-    try (Scanner keyboard = new Scanner(System.in);
+    
+    try (
+        Scanner keyboard = new Scanner(System.in);
         Connection con = DriverManager.getConnection(
         "jdbc:mariadb://localhost/bitcampdb?user=bitcamp&password=1111")) {
 
@@ -29,7 +31,7 @@ public class Test02 {
         
         try (PreparedStatement stmt = con.prepareStatement(
             "insert into x_board(title, contents) values(?,?)")) {
-
+          
           stmt.setString(1, title);
           stmt.setString(2, contents);
           stmt.executeUpdate();
