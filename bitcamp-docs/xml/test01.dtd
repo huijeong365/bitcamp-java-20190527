@@ -5,15 +5,13 @@
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT age (#PCDATA)>
 <!ELEMENT tel (#PCDATA)>
-<!ELEMENT schools (name,grade)>
+<!ELEMENT school (name,grade)>
 <!ELEMENT grade (#PCDATA)>
 
 <!ELEMENT student2 EMPTY>
 <!ATTLIST student2
-  xml
   type (일반|직장인|재학생) "일반"
   name CDATA #REQUIRED
   age CDATA #REQUIRED
   tel CDATA #IMPLIED
 >
-
