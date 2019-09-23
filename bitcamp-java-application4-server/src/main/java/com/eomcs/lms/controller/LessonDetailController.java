@@ -14,7 +14,7 @@ public class LessonDetailController implements PageController {
   private LessonDao lessonDao;
 
   @Override
-  public String execute (HttpServletRequest request, HttpServletResponse response) 
+  public String execute(HttpServletRequest request, HttpServletResponse response) 
       throws Exception {
 
     int no = Integer.parseInt(request.getParameter("no"));
@@ -23,6 +23,7 @@ public class LessonDetailController implements PageController {
     if (lesson == null) {
       throw new Exception("해당 번호의 데이터가 없습니다!");
     }
+
     request.setAttribute("lesson", lesson);
     return "/jsp/lesson/detail.jsp";
   }

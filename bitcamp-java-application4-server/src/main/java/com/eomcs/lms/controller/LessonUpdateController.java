@@ -14,11 +14,9 @@ public class LessonUpdateController implements PageController {
   @Resource
   private LessonDao lessonDao;
 
-
   @Override
-  public String execute (HttpServletRequest request, HttpServletResponse response) 
+  public String execute(HttpServletRequest request, HttpServletResponse response) 
       throws Exception {
-
     Lesson lesson = new Lesson();
     lesson.setNo(Integer.parseInt(request.getParameter("no")));
     lesson.setTitle(request.getParameter("title"));
@@ -29,6 +27,7 @@ public class LessonUpdateController implements PageController {
     lesson.setDayHours(Integer.parseInt(request.getParameter("dayHours")));
 
     lessonDao.update(lesson);
+
     return "redirect:list";
   }
 }

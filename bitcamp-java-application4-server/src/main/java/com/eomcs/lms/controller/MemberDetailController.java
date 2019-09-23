@@ -10,11 +10,12 @@ import com.eomcs.lms.domain.Member;
 @Component("/member/detail")
 public class MemberDetailController implements PageController {
 
-  @Resource
+  @Resource 
   private MemberDao memberDao;
 
+
   @Override
-  public String execute (HttpServletRequest request, HttpServletResponse response) 
+  public String execute(HttpServletRequest request, HttpServletResponse response) 
       throws Exception {
 
     int no = Integer.parseInt(request.getParameter("no"));
@@ -26,6 +27,5 @@ public class MemberDetailController implements PageController {
 
     request.setAttribute("member", member);
     return "/jsp/member/detail.jsp";
-
   }
 }

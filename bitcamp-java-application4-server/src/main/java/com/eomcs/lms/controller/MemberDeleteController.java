@@ -9,8 +9,9 @@ import com.eomcs.lms.dao.MemberDao;
 @Component("/member/delete")
 public class MemberDeleteController implements PageController {
 
-  @Resource
+  @Resource 
   private MemberDao memberDao;
+
 
   @Override
   public String execute(HttpServletRequest request, HttpServletResponse response) 

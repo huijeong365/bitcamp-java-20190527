@@ -27,4 +27,5 @@ public class BoardAddController implements PageController {
 
     return "redirect:list";
   }
+
 }

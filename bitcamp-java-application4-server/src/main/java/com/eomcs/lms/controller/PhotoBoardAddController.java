@@ -1,16 +1,12 @@
 package com.eomcs.lms.controller;
 
-import java.io.IOException;
 import java.util.Collection;
 import java.util.UUID;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
@@ -20,37 +16,21 @@ import com.eomcs.lms.dao.PhotoFileDao;
 import com.eomcs.lms.domain.PhotoBoard;
 import com.eomcs.lms.domain.PhotoFile;
 
-@MultipartConfig(maxFileSize = 1024 * 1024 * 10)
-@WebServlet("/photoboard/add")
-public class PhotoBoardAddController extends HttpServlet {
-  private static final long serialVersionUID = 1L;
+@Component("/photoboard/add")
+public class PhotoBoardAddController implements PageController {
   
-  String uploadDir;
-  private PlatformTransactionManager txManager;
-  private PhotoBoardDao photoBoardDao;
-  private PhotoFileDao photoFileDao;
+  @Resource private PlatformTransactionManager txManager;
+  @Resource private PhotoBoardDao photoBoardDao;
+  @Resource private PhotoFileDao photoFileDao;
   
   @Override
-  public void init() throws ServletException {
-    ApplicationContext appCtx = 
-        (ApplicationContext) getServletContext().getAttribute("iocContainer");
-    txManager = appCtx.getBean(PlatformTransactionManager.class);
-    photoBoardDao = appCtx.getBean(PhotoBoardDao.class);
-    photoFileDao = appCtx.getBean(PhotoFileDao.class);
-    uploadDir = getServletContext().getRealPath("/upload/photoboard");
-  }
-
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) 
-      throws IOException, ServletException {
+  public String execute(HttpServletRequest request, HttpServletResponse response) 
+      throws Exception {
+    if (request.getMethod().equalsIgnoreCase("GET")) {
+      return "/jsp/photoboard/form.jsp";
+    }
     
-    request.setAttribute("viewUrl", "/jsp/photoboard/form.jsp");
-  }
- 
-  @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) 
-      throws IOException, ServletException {
-    
+    String uploadDir = request.getServletContext().getRealPath("/upload/photoboard");
     // 트랜잭션 동작을 정의한다.
     DefaultTransactionDefinition def = new DefaultTransactionDefinition();
     def.setName("tx1");
@@ -89,15 +69,11 @@ public class PhotoBoardAddController extends HttpServlet {
       }
       
       txManager.commit(status);
-      
-      request.setAttribute("viewUrl", "redirect:list");
+      return "redirect:list";
       
     } catch (Exception e) { 
-      
       txManager.rollback(status);
-      
-      request.setAttribute("error", e);
-      request.setAttribute("refresh", "list");
+      throw e;
     }
   }
 }

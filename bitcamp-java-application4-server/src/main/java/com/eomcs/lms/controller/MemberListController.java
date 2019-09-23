@@ -11,8 +11,9 @@ import com.eomcs.lms.domain.Member;
 @Component("/member/list")
 public class MemberListController implements PageController {
 
-  @Resource
+  @Resource 
   private MemberDao memberDao;
+
 
   @Override
   public String execute(HttpServletRequest request, HttpServletResponse response) 

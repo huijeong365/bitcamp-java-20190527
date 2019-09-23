@@ -16,13 +16,11 @@ public class BoardUpdateController implements PageController {
   @Override
   public String execute(HttpServletRequest request, HttpServletResponse response) 
       throws Exception {
-
     Board board = new Board();
     board.setNo(Integer.parseInt(request.getParameter("no")));
     board.setContents(request.getParameter("contents"));
     boardDao.update(board);
 
     return "redirect:list";
-
   }
 }
