@@ -1,4 +1,4 @@
-package com.eomcs.lms.Controller;
+package com.eomcs.lms.controller;
 
 import java.util.List;
 import javax.annotation.Resource;

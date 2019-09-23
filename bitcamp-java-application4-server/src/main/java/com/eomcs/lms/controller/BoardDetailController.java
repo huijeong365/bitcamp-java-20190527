@@ -1,4 +1,4 @@
-package com.eomcs.lms.Controller;
+package com.eomcs.lms.controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;

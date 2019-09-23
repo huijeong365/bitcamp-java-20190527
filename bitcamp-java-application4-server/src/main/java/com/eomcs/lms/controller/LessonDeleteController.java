@@ -1,15 +1,13 @@
-package com.eomcs.lms.Controller;
+package com.eomcs.lms.controller;
 
-import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import com.eomcs.lms.dao.LessonDao;
-import com.eomcs.lms.domain.Lesson;
 
-@Component("/lesson/list")
-public class LessonListController implements PageController {
+@Component("/lesson/delete")
+public class LessonDeleteController implements PageController {
 
   @Resource
   private LessonDao lessonDao;
@@ -18,9 +16,11 @@ public class LessonListController implements PageController {
   public String execute(HttpServletRequest request, HttpServletResponse response) 
       throws Exception {
 
-    List<Lesson> lessons = lessonDao.findAll();
-    request.setAttribute("lessons", lessons);
-    return "/jsp/lesson/list.jsp";
+    int no = Integer.parseInt(request.getParameter("no"));
+    if (lessonDao.delete(no) == 0) {
+      throw new Exception("해당 데이터가 없습니다.");
+    }
+    return "redirect:list";
   }
 }
 

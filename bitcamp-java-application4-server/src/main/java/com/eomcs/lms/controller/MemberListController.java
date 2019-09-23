@@ -1,4 +1,4 @@
-package com.eomcs.lms.Controller;
+package com.eomcs.lms.controller;
 
 import java.util.List;
 import javax.annotation.Resource;
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 import com.eomcs.lms.dao.MemberDao;
 import com.eomcs.lms.domain.Member;
 
-@Component("/member/search")
-public class MemberSearchController implements PageController {
+@Component("/member/list")
+public class MemberListController implements PageController {
 
   @Resource
   private MemberDao memberDao;
@@ -18,11 +18,9 @@ public class MemberSearchController implements PageController {
   public String execute(HttpServletRequest request, HttpServletResponse response) 
       throws Exception {
 
-    List<Member> members = memberDao.findByKeyword(
-        request.getParameter("keyword"));
+    List<Member> members = memberDao.findAll();
 
     request.setAttribute("members", members);
     return "/jsp/member/list.jsp";
-
   }
 }

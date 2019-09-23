@@ -1,4 +1,4 @@
-package com.eomcs.lms.Controller;
+package com.eomcs.lms.controller;
 
 import java.sql.Date;
 import javax.annotation.Resource;
@@ -8,22 +8,19 @@ import org.springframework.stereotype.Component;
 import com.eomcs.lms.dao.LessonDao;
 import com.eomcs.lms.domain.Lesson;
 
-@Component("/lesson/add")
-public class LessonAddController implements PageController {
+@Component("/lesson/update")
+public class LessonUpdateController implements PageController {
 
   @Resource
   private LessonDao lessonDao;
 
+
   @Override
-  public String execute(HttpServletRequest request, HttpServletResponse response) 
+  public String execute (HttpServletRequest request, HttpServletResponse response) 
       throws Exception {
 
-
-    if (request.getMethod().equalsIgnoreCase("GET")) {
-      return "/jsp/lesson/form.jsp";
-    }
-
     Lesson lesson = new Lesson();
+    lesson.setNo(Integer.parseInt(request.getParameter("no")));
     lesson.setTitle(request.getParameter("title"));
     lesson.setContents(request.getParameter("contents"));
     lesson.setStartDate(Date.valueOf(request.getParameter("startDate")));
@@ -31,7 +28,7 @@ public class LessonAddController implements PageController {
     lesson.setTotalHours(Integer.parseInt(request.getParameter("totalHours")));
     lesson.setDayHours(Integer.parseInt(request.getParameter("dayHours")));
 
-    lessonDao.insert(lesson);
+    lessonDao.update(lesson);
     return "redirect:list";
   }
 }

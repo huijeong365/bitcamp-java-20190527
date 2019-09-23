@@ -1,4 +1,4 @@
-package com.eomcs.lms.servlet;
+package com.eomcs.lms.controller;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -22,7 +22,7 @@ import com.eomcs.lms.domain.PhotoFile;
 
 @MultipartConfig(maxFileSize = 1024 * 1024 * 10)
 @WebServlet("/photoboard/add")
-public class PhotoBoardAddServlet extends HttpServlet {
+public class PhotoBoardAddController extends HttpServlet {
   private static final long serialVersionUID = 1L;
   
   String uploadDir;
