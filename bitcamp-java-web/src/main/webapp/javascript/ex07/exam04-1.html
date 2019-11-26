@@ -11,13 +11,13 @@ div {
 </style>
 </head>
 <body>
-  <div id="header"></div>
+<div id="header"></div>
 
-  <h1>AJAX - 응용 I : HTML 일부분 가져오기</h1>
-  <button id="btn1">상단, 하단의 내용을 가져와라!</button>
+<h1>AJAX - 응용 I : HTML 일부분 가져오기</h1>
+<button id="btn1">상단, 하단의 내용을 가져와라!</button>
 
-  <div id="footer"></div>
-  <script>
+<div id="footer"></div>
+<script>
 "use strict"
 // 웹페이지를 만들 때 AJAX를 이용하여 여러 조각을 붙여서 만들 수 있다.
 //       
@@ -25,8 +25,8 @@ var header = document.querySelector("#header"),
     footer = document.querySelector("#footer");
 
 document.getElementById("btn1").onclick = () => {
-prepareHeader();
-prepareFooter();
+  prepareHeader();
+  prepareFooter();
 };
 
 function prepareHeader() {

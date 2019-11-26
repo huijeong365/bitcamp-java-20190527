@@ -15,8 +15,8 @@ public class LessonDeleteCommand implements Command {
 
   @Override
   public void execute(BufferedReader in, PrintStream out) {
-    
     try {
+
       int no = Input.getIntValue(in, out, "번호? ");
       
       if (lessonDao.delete(no) > 0) {

@@ -26,7 +26,7 @@ public class BoardUpdateCommand implements Command {
         return;
       }
       
-      String str = Input.getStringValue(in, out,"내용? ");
+      String str = Input.getStringValue(in, out, "내용? ");
       if (str.length() > 0) {
         board.setContents(str);
         boardDao.update(board);

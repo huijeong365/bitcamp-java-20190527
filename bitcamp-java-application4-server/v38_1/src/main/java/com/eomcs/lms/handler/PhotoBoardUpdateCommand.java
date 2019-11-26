@@ -26,7 +26,8 @@ public class PhotoBoardUpdateCommand implements Command {
         return;
       }
       
-      String str = Input.getStringValue(in, out,"내용? ");
+      String str = Input.getStringValue(in, out, 
+          String.format("제목(%s)? ", photoBoard.getTitle()));
       if (str.length() > 0) {
         photoBoard.setTitle(str);
         photoBoardDao.update(photoBoard);

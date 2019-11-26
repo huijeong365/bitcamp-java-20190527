@@ -157,25 +157,25 @@ public class App implements HttpRequestHandler {
     // 커맨드 객체에 있는 request handler를 호출할 때 넘겨 줄 파라미터 객체 준비
     ServletRequest servletRequest = new ServletRequest();
     ServletResponse servletResponse = new ServletResponse();
-
+    
     // 클라이언트가 요청한 명령 알아내기
     // [request line]
-    // => GET /member/add?name=aaa&email=aaa@test.com&password=1111&tel=1111-1111 HTML1.1
+    // => GET /member/add?name=aaa&email=aaa@test.com&password=1111&tel=1111-1111 HTTP/1.1
     // [uri]
     // => /member/add?name=aaa&email=aaa@test.com&password=1111&tel=1111-1111
     String uriStr = request.getRequestLine().getUri();
     String[] values = uriStr.split("\\?");
-
+    
     // => /member/add
     String command = values[0];
     logger.info(command);
-
+    
     if (values.length > 1) {
       // => name=aaa&email=aaa@test.com&password=1111&tel=1111-1111
-      String queryString = values[1]; // 출력용.
+      String queryString = values[1]; // 출력 용.
       logger.info(queryString);
     }
-
+    
     try {
       RequestHandler requestHandler = 
           handlerMapping.getRequestHandler(command);
@@ -215,6 +215,7 @@ public class App implements HttpRequestHandler {
           "<html><body><h1>요청 처리 중 오류 발생!</h1></body></html>",
           ContentType.create("text/html", "UTF-8"));
       response.setEntity(entity);
+
     }
   }
 
@@ -232,3 +233,13 @@ public class App implements HttpRequestHandler {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+

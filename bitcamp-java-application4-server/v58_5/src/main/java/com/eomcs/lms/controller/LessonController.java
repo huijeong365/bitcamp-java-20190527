@@ -13,13 +13,13 @@ public class LessonController {
 
   @Resource
   private LessonDao lessonDao;
-  
-  @RequestMapping ("/lesson/form")
+
+  @RequestMapping("/lesson/form")
   public String form() {
     return "/jsp/lesson/form.jsp";
   }
-
-  @RequestMapping ("/lesson/add")
+  
+  @RequestMapping("/lesson/add")
   public String add(Lesson lesson) 
       throws Exception {
     lessonDao.insert(lesson);

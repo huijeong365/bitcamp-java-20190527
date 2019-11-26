@@ -26,7 +26,7 @@ public class PhotoBoardController {
   @Resource private PhotoFileDao photoFileDao;
   
   @RequestMapping("/photoboard/add")
-  public String execute(HttpServletRequest request, HttpServletResponse response) 
+  public String add(HttpServletRequest request, HttpServletResponse response) 
       throws Exception {
     if (request.getMethod().equalsIgnoreCase("GET")) {
       return "/jsp/photoboard/form.jsp";

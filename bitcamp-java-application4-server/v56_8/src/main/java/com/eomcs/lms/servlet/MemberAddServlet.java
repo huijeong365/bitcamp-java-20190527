@@ -24,15 +24,17 @@ public class MemberAddServlet extends HttpServlet {
 
   @Override
   public void init() throws ServletException {
-    ApplicationContext appCtx =
+    ApplicationContext appCtx = 
         (ApplicationContext) getServletContext().getAttribute("iocContainer");
     memberDao = appCtx.getBean(MemberDao.class);
     
     uploadDir = getServletContext().getRealPath("/upload/member");
   }
-  
+
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+  public void doGet(HttpServletRequest request, HttpServletResponse response) 
+      throws IOException, ServletException {
+    
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<html><head><title>회원 등록폼</title>"
@@ -40,7 +42,7 @@ public class MemberAddServlet extends HttpServlet {
         + "<link rel='stylesheet' href='/css/common.css'>"
         + "</head>");
     out.println("<body>");
-    
+
     request.getRequestDispatcher("/header").include(request, response);
     
     out.println("<div id='content'>");
@@ -59,8 +61,9 @@ public class MemberAddServlet extends HttpServlet {
   }
   
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response)
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
+    
     try {
       Member member = new Member();
       
@@ -68,7 +71,7 @@ public class MemberAddServlet extends HttpServlet {
       member.setEmail(request.getParameter("email"));
       member.setPassword(request.getParameter("password"));
       member.setTel(request.getParameter("tel"));
-      
+
       // 업로드 된 사진 파일 처리
       Part photoPart = request.getPart("photo");
       if (photoPart != null && photoPart.getSize() > 0) {
@@ -87,5 +90,4 @@ public class MemberAddServlet extends HttpServlet {
       request.getRequestDispatcher("/error").forward(request, response);
     }
   }
-  
 }

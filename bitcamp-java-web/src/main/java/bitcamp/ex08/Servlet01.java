@@ -73,13 +73,18 @@ public class Servlet01 extends HttpServlet {
 }
 
 
-  //HTTP 응답 프로토콜 예:
-  /*
-  HTTP/1.1 200
-  Refresh: 3;url=s100
-  Content-Type: text/plain;charset=UTF-8
-  Content-Length: 28
-  Date: Mon, 16 Sep 2019 03:15:02 GMT
-    안녕하세요! - /ex08/s1
-  */
+// HTTP 응답 프로토콜 예:
+/*
+HTTP/1.1 200
+Refresh: 3;url=s100
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 28
+Date: Mon, 16 Sep 2019 03:15:02 GMT
+
+안녕하세요! - /ex08/s1
+*/
+
+
+
+
 

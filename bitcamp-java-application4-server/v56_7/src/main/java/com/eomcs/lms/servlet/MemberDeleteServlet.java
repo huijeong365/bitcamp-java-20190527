@@ -17,14 +17,15 @@ public class MemberDeleteServlet extends HttpServlet {
 
   @Override
   public void init() throws ServletException {
-    ApplicationContext appCtx =
+    ApplicationContext appCtx = 
         (ApplicationContext) getServletContext().getAttribute("iocContainer");
     memberDao = appCtx.getBean(MemberDao.class);
   }
-  
+
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response)
+  public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
+    
     try {
       int no = Integer.parseInt(request.getParameter("no"));
       
@@ -40,5 +41,4 @@ public class MemberDeleteServlet extends HttpServlet {
       request.getRequestDispatcher("/error").forward(request, response);
     }
   }
-  
 }

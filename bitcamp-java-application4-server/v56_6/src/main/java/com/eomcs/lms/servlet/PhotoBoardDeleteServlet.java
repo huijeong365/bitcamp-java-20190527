@@ -26,8 +26,9 @@ public class PhotoBoardDeleteServlet extends HttpServlet {
   }
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response)
+  public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
+    
     try {
       int no = Integer.parseInt(request.getParameter("no"));
       
@@ -46,6 +47,4 @@ public class PhotoBoardDeleteServlet extends HttpServlet {
       request.getRequestDispatcher("/error").forward(request, response);
     }
   }
-  
-
 }

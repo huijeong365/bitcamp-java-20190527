@@ -12,7 +12,7 @@ import com.eomcs.util.ConnectionFactory;
 public class LessonDaoImpl implements LessonDao {
 
   ConnectionFactory conFactory;
-
+  
   public LessonDaoImpl(ConnectionFactory conFactory) {
     this.conFactory = conFactory;
   }

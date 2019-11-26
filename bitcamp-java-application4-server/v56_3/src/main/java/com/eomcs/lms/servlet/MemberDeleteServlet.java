@@ -24,13 +24,14 @@ public class MemberDeleteServlet extends HttpServlet {
 
   @Override
   public void init() throws ServletException {
-    ApplicationContext appCtx =
+    ApplicationContext appCtx = 
         (ApplicationContext) getServletContext().getAttribute("iocContainer");
     memberDao = appCtx.getBean(MemberDao.class);
   }
-  
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    
     try {
       int no = Integer.parseInt(request.getParameter("no"));
       
@@ -42,7 +43,9 @@ public class MemberDeleteServlet extends HttpServlet {
     } catch (Exception e) {
       response.setContentType("text/html;charset=UTF-8");
       PrintWriter out = response.getWriter();
-      out.println("<html><head><title>회원 삭제</title></head>");
+      out.println("<html><head><title>회원 삭제</title>"
+          + "<meta http-equiv='Refresh' content='1;url=/member/list'>"
+          + "</head>");
       out.println("<body><h1>회원 삭제</h1>");
       out.println("<p>데이터 삭제에 실패했습니다!</p>");
       out.println("</body></html>");
@@ -54,5 +57,4 @@ public class MemberDeleteServlet extends HttpServlet {
       logger.error(strOut.toString());
     }
   }
-  
 }

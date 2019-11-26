@@ -7,7 +7,7 @@ import com.eomcs.util.Input;
 
 public class BoardDeleteCommand implements Command {
   
-private BoardDao boardDao;
+  private BoardDao boardDao;
   
   public BoardDeleteCommand(BoardDao boardDao) {
     this.boardDao = boardDao;

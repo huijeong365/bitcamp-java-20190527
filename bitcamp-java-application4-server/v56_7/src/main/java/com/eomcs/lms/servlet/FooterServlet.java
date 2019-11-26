@@ -30,3 +30,13 @@ public class FooterServlet extends HttpServlet {
     out.println("</div>");
   }
 }
+
+
+
+
+
+
+
+
+
+

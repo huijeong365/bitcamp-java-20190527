@@ -2,7 +2,11 @@ package com.eomcs.lms.handler;
 
 import java.io.BufferedReader;
 import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.List;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +21,8 @@ public class PhotoBoardCommand {
   
   // 이 클래스에서 로그를 출력할 일이 있다면 다음과 같이 로거를 만들어 사용하라!
   /*
-  private static final Logger logger = LogManager.getLogger(PhotoBoardCommand.class);
+  private static final Logger logger = 
+      LogManager.getLogger(PhotoBoardCommand.class);
   */
   
   private PhotoBoardDao photoBoardDao;

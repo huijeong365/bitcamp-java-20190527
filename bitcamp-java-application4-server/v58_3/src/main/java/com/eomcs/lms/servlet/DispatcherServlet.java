@@ -41,13 +41,13 @@ public class DispatcherServlet extends HttpServlet {
         servletPath, pathInfo));
     
     try {
-      // 클라이언트 요청을 처리할 페이지 컨트롤러를 찾는다
+      // 클라이언트 요청을 처리할 페이지 컨트롤로를 찾는다.
       Object pageController = iocContainer.getBean(pathInfo);
       
       // 페이지 컨트롤러에서 @RequestMapping이 붙은 메서드를 찾는다.
       Method requestHandler = findRequestHandler(pageController);
       if (requestHandler == null) {
-        throw new Exception(pathInfo + "요청을 처리할 수 없습니다.");
+        throw new Exception(pathInfo + " 요청을 처리할 수 없습니다.");
       }
       
       // request handler를 실행한다.
@@ -79,14 +79,14 @@ public class DispatcherServlet extends HttpServlet {
 
   @SuppressWarnings("unchecked")
   private Method findRequestHandler(Object obj) {
-   Set<Method>  methods = getMethods(
+    Set<Method> methods = getMethods(
         obj.getClass(), 
         withAnnotation(RequestMapping.class),
         withModifier(Modifier.PUBLIC));
-   
-   for (Method method : methods) {
-     return method;
-   }
+    
+    for (Method method : methods) {
+      return method;
+    }
     return null;
   }
 }

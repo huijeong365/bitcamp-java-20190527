@@ -24,10 +24,10 @@ import com.eomcs.util.RequestMappingHandlerMapping;
 import com.eomcs.util.RequestMappingHandlerMapping.RequestHandler;
 
 public class App {
-  
-  // Log4j의 로그 출력 도구를 준비한다.
-  private  static final Logger logger = LogManager.getLogger(App.class);
 
+  // Log4j의 로그 출력 도구를 준비한다.
+  private static final Logger logger = LogManager.getLogger(App.class);
+  
   private static final int CONTINUE = 1;
   private static final int STOP = 0;
 
@@ -64,7 +64,7 @@ public class App {
     // 객체풀에서 @Component 애노테이션이 붙은 객체 목록을 꺼낸다.
     Map<String,Object> components = appCtx.getBeansWithAnnotation(Component.class);
     
-    logger.trace("[요청 핸들러] ==================================");
+    logger.trace("[요청 핸들러] ===========================");
     
     // 객체 안에 선언된 메서드 중에서 @RequestMapping이 붙은 메서드를 찾아낸다.
     Collection<Object> objList = components.values();
@@ -178,7 +178,7 @@ public class App {
             
           } catch (Exception e) {
             logger.info("해당 명령을 처리할 수 없습니다.");
-
+            
             StringWriter out2 = new StringWriter();
             e.printStackTrace(new PrintWriter(out2));
             logger.debug(out2.toString());
@@ -204,9 +204,9 @@ public class App {
     } catch (Exception e) {
       logger.info("시스템 실행 중 오류 발생!");
       
-      StringWriter out = new StringWriter();
-      e.printStackTrace(new PrintWriter(out));
-      logger.debug(out.toString());
+      StringWriter out2 = new StringWriter();
+      e.printStackTrace(new PrintWriter(out2));
+      logger.debug(out2.toString());
     }
   }
 }

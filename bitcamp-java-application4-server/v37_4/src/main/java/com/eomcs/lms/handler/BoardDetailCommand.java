@@ -17,11 +17,10 @@ public class BoardDetailCommand implements Command {
   @Override
   public void execute(BufferedReader in, PrintStream out) {
     try {
-      // 클라이언트 에게 번호를 요구하여 받는다.
+      // 클라이언트에게 번호를 요구하여 받는다.
       int no = Input.getIntValue(in, out, "번호? ");
-
-      Board board = boardDao.findBy(no);
       
+      Board board = boardDao.findBy(no);
       if (board == null) {
         out.println("해당 번호의 데이터가 없습니다!");
         return;

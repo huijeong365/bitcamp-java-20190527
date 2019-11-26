@@ -12,9 +12,9 @@ import com.eomcs.util.DataSource;
 public class LessonDaoImpl implements LessonDao {
 
   DataSource dataSource;
-
-  public LessonDaoImpl(DataSource dataSource) {
-    this.dataSource = dataSource;
+  
+  public LessonDaoImpl(DataSource conFactory) {
+    this.dataSource = conFactory;
   }
   
   @Override

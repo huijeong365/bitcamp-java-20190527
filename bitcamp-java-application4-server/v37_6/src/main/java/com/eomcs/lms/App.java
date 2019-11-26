@@ -1,4 +1,4 @@
-// v37_6 : 스레드풀 적용하기.
+// v37_6 : 스레드풀 적용하기. 
 package com.eomcs.lms;
 
 import java.io.BufferedReader;
@@ -44,15 +44,15 @@ public class App {
   Connection con;
   HashMap<String,Command> commandMap = new HashMap<>();
   int state;
-
-  // 스레드 풀
+  
+  // 스레드풀
   ExecutorService executorService = Executors.newCachedThreadPool();
-
+  
   public App() throws Exception {
 
-    // 처음에는 계속 클라이언트 요청을 처리해야 하는 상태로 설정한다.
+    // 처음에는 클라이언트 요청을 처리해야 하는 상태로 설정한다.
     state = CONTINUE;
-
+    
     try {
       // DAO가 사용할 Connection 객체 준비하기
       con = DriverManager.getConnection(
@@ -92,6 +92,7 @@ public class App {
 
   }
 
+  @SuppressWarnings("static-access")
   private void service() {
 
     try (ServerSocket serverSocket = new ServerSocket(8888);) {
@@ -99,20 +100,20 @@ public class App {
 
       while (true) {
         // 클라이언트가 접속하면 작업을 수행할 Runnable 객체를 만들어 스레드풀에 맡긴다.
-        executorService.submit((new CommandProcessor(serverSocket.accept())));
-
-        // 한 클라이언트가 serverstop 명령을 보내면 종료 상태로 설정되고
+        executorService.submit(new CommandProcessor(serverSocket.accept()));
+        
+        // 한 클라이언트가 serverstop 명령을 보내면 종료 상태로 설정되고 
         // 다음 요청을 처리할 때 즉시 실행을 멈춘다.
         if (state == STOP)
           break;
       }
 
       // 스레드풀에게 실행 종료를 요청한다.
-      // => 스레드풀은 자신이 관리하는 스레드들이 실행이 종료 되었는지 감시한다.
+      // => 스레드풀은 자신이 관리하는 스레드들이 실행이 종료되었는지 감시한다.
       executorService.shutdown();
-
+      
       // 스레드풀이 관리하는 모든 스레드가 종료되었는지 매 0.5초마다 검사한다.
-      // => 스레드풀의 모든 스레드가 실행을 종료했으면  즉시 main 스레드를 종료한다.
+      // => 스레드풀의 모든 스레드가 실행을 종료했으면 즉시 main 스레드를 종료한다.
       while (!executorService.isTerminated()) {
         Thread.currentThread().sleep(500);
       }
@@ -133,13 +134,13 @@ public class App {
   }
 
   class CommandProcessor implements Runnable {
-
+    
     Socket socket;
-
+    
     public CommandProcessor(Socket socket) {
       this.socket = socket;
     }
-
+    
     @Override
     public void run() {
       try (Socket socket = this.socket;
@@ -153,11 +154,11 @@ public class App {
         String request = in.readLine();
         if (request.equals("quit")) {
           out.println("Good bye!");
-
+          
         } else if (request.equals("serverstop")) {
           state = STOP;
           out.println("Good bye!");
-
+          
         } else {
           // non-static 중첩 클래스는 바깥 클래스의 인스턴스 멤버를 사용할 수 있다.
           Command command = commandMap.get(request);
@@ -175,12 +176,9 @@ public class App {
       } catch (Exception e) {
         System.out.println("클라이언트와 통신 오류!");
       }
-
     }
-
   }
-
-
+  
   public static void main(String[] args) {
     try {
       App app = new App();

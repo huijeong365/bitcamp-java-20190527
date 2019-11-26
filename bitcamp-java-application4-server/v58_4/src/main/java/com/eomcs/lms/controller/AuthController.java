@@ -50,4 +50,5 @@ public class AuthController {
     request.getSession().invalidate();
     return "redirect:login";
   }
+
 }

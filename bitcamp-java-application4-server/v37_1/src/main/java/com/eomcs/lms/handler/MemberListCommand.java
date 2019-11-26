@@ -8,11 +8,11 @@ import com.eomcs.lms.domain.Member;
 
 public class MemberListCommand implements Command {
   private MemberDao memberDao;
-
+  
   public MemberListCommand(MemberDao memberDao) {
     this.memberDao = memberDao;
   }
-
+  
   @Override
   public void execute(BufferedReader in, PrintStream out) {
     try {

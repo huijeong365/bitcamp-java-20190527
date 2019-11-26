@@ -32,8 +32,10 @@ public class HeaderServlet extends HttpServlet {
     out.println("<a class='navbar-brand' href='#'>\n"
         + "<img src='/images/logo.png' class='d-inline-block align-top'>\n"
         + "수업관리시스템</a>");
-    
-    out.println("<div class='collapse navbar-collapse' id='navbarNav'>");
+    out.println("<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n" + 
+        "    <span class=\"navbar-toggler-icon\"></span>\n" + 
+        "  </button>");
+    out.println("<div class='collapse navbar-collapse' id='navbarSupportedContent'>");
     out.println("<ul class='navbar-nav'>");
     out.println("  <li class='nav-item active'>");
     out.println("    <a class='nav-link' href='/board/list'>게시판</a>");
@@ -47,20 +49,32 @@ public class HeaderServlet extends HttpServlet {
     out.println("  <li class='nav-item active'>");
     out.println("    <a class='nav-link' href='/photoboard/list'>사진게시판</a>");
     out.println("  </li>");
+    out.println("</ul>");
     out.println("</div>");
     
-    out.println("<idv>");
+    out.println("<div>");
     HttpSession session = request.getSession();
     Member loginUser = (Member) session.getAttribute("loginUser");
     if (loginUser == null) {
-      out.println("<a href='/auth/login' class='btn btn-outline-dark btn-sm'>로그인</a>");
+      out.println("  <a href='/auth/login' class='btn btn-outline-dark btn-sm'>로그인</a>");
     } else {
-      out.printf("<a href='/member/detail?no=%d'>%s 님  </a>",
+      out.printf("<a href='/member/detail?no=%d'>%s</a>", 
           loginUser.getNo(),
           loginUser.getName());
       out.println("<a href='/auth/logout' class='btn btn-outline-dark btn-sm'>로그아웃</a>");
     }
-    out.println("</idv>");
+    out.println("</div>");
+    
     out.println("</nav>");
   }
 }
+
+
+
+
+
+
+
+
+
+

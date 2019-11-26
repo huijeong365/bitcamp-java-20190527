@@ -38,10 +38,20 @@ public class HeaderServlet extends HttpServlet {
       out.println("  <a href='/auth/login'>로그인</a>");
     } else {
       out.println("<a href='/auth/logout'>로그아웃</a>");
-      out.printf("<a href='/member/detail?no=%d'>%s</a>",
+      out.printf("<a href='/member/detail?no=%d'>%s</a>", 
           loginUser.getNo(),
           loginUser.getName());
     }
     out.println("</div>");
   }
 }
+
+
+
+
+
+
+
+
+
+

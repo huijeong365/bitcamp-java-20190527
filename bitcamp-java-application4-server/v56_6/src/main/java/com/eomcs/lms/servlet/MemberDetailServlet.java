@@ -14,19 +14,20 @@ import com.eomcs.lms.domain.Member;
 @WebServlet("/member/detail")
 public class MemberDetailServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
-
+  
   private MemberDao memberDao;
 
   @Override
   public void init() throws ServletException {
-    ApplicationContext appCtx =
+    ApplicationContext appCtx = 
         (ApplicationContext) getServletContext().getAttribute("iocContainer");
     memberDao = appCtx.getBean(MemberDao.class);
   }
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response)
+  public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
+    
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<html><head><title>회원 상세</title>"
@@ -36,12 +37,13 @@ public class MemberDetailServlet extends HttpServlet {
     out.println("<body>");
 
     request.getRequestDispatcher("/header").include(request, response);
-
+    
     out.println("<div id='content'>");
     out.println("<h1>회원 상세</h1>");
+    
     try {
       int no = Integer.parseInt(request.getParameter("no"));
-
+     
       Member member = memberDao.findBy(no);
       if (member == null) {
         out.println("<p>해당 번호의 데이터가 없습니다!</p>");
@@ -65,17 +67,15 @@ public class MemberDetailServlet extends HttpServlet {
         out.println("<button>변경</button>");
         out.printf("<a href='/member/delete?no=%d'>삭제</a>\n", member.getNo());
         out.println("</form>");
-        
       } 
     } catch (Exception e) {
       out.println("<p>데이터 조회에 실패했습니다!</p>");
       throw new RuntimeException(e);
-
+      
     } finally {
       out.println("</div>");
       request.getRequestDispatcher("/footer").include(request, response);
       out.println("</body></html>");
     }
   }
-
 }

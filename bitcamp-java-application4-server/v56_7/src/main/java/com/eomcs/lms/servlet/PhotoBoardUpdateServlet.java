@@ -28,7 +28,7 @@ public class PhotoBoardUpdateServlet extends HttpServlet {
   }
 
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response)
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
     try {
       PhotoBoard photoBoard = new PhotoBoard();
@@ -39,7 +39,7 @@ public class PhotoBoardUpdateServlet extends HttpServlet {
       photoFileDao.deleteAll(photoBoard.getNo());
 
       int count = 0;
-      for (int i = 1; i <= 3; i++) {
+      for (int i = 1; i <= 6; i++) {
         String filepath = request.getParameter("filePath" + i);
         if (filepath.length() == 0) {
           continue;

@@ -25,11 +25,11 @@ public class MemberUpdateServlet extends HttpServlet {
 
   @Override
   public void init() throws ServletException {
-    ApplicationContext appCtx =
+    ApplicationContext appCtx = 
         (ApplicationContext) getServletContext().getAttribute("iocContainer");
     memberDao = appCtx.getBean(MemberDao.class);
   }
-  
+
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     try {
@@ -40,6 +40,7 @@ public class MemberUpdateServlet extends HttpServlet {
       member.setPassword(request.getParameter("password"));
       member.setPhoto(request.getParameter("photo"));
       member.setTel(request.getParameter("tel"));
+      
       memberDao.update(member);
       response.sendRedirect("/member/list");
       

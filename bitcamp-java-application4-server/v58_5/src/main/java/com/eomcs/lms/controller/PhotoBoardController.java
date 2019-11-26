@@ -30,8 +30,8 @@ public class PhotoBoardController {
   }
   
   @RequestMapping("/photoboard/add")
-  public String execute(
-      HttpServletRequest request,
+  public String add(
+      HttpServletRequest request, 
       PhotoBoard photoBoard,
       Part[] filePath) throws Exception {
     
@@ -78,7 +78,8 @@ public class PhotoBoardController {
   }
   
   @RequestMapping("/photoboard/delete")
-  public String delete(int no) throws Exception {
+  public String delete(int no) 
+      throws Exception {
     
     // 트랜잭션 동작을 정의한다.
     DefaultTransactionDefinition def = new DefaultTransactionDefinition();
@@ -130,7 +131,7 @@ public class PhotoBoardController {
   
   @RequestMapping("/photoboard/update")
   public String update(
-      HttpServletRequest request,
+      HttpServletRequest request, 
       PhotoBoard photoBoard,
       Part[] filePath) throws Exception {
 

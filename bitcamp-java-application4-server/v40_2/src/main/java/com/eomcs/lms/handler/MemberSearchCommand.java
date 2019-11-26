@@ -9,11 +9,11 @@ import com.eomcs.util.Input;
 
 public class MemberSearchCommand implements Command {
   private MemberDao memberDao;
-
+  
   public MemberSearchCommand(MemberDao memberDao) {
     this.memberDao = memberDao;
   }
-
+  
   @Override
   public void execute(BufferedReader in, PrintStream out) {
     try {

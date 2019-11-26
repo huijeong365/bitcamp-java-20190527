@@ -16,11 +16,9 @@ public class LessonUpdateCommand implements Command {
 
   @Override
   public void execute(BufferedReader in, PrintStream out) {
-
     try {
       int no = Input.getIntValue(in, out, "번호? ");
-      
-      // 사용자가 입력한 번호를 가지고 목록에서 그 번호에 해당하는 Lesson 객체를 찾는다.
+
       Lesson lesson = lessonDao.findBy(no);
       if (lesson == null) {
         out.println("해당 번호의 데이터가 없습니다!");

@@ -15,28 +15,28 @@ import com.eomcs.lms.domain.Lesson;
 @WebServlet("/lesson/add")
 public class LessonAddServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
-
+  
   private LessonDao lessonDao;
 
   @Override
   public void init() throws ServletException {
-    ApplicationContext appCtx =
+    ApplicationContext appCtx = 
         (ApplicationContext) getServletContext().getAttribute("iocContainer");
     lessonDao = appCtx.getBean(LessonDao.class);
   }
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response)
+  public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
+    
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<html><head><title>수업 등록폼</title>"
         + "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>"
         + "<link rel='stylesheet' href='/css/common.css'>"
         + "</head>");
-    
     out.println("<body>");
-    
+
     request.getRequestDispatcher("/header").include(request, response);
     
     out.println("<div id='content'>");
@@ -54,22 +54,22 @@ public class LessonAddServlet extends HttpServlet {
     request.getRequestDispatcher("/footer").include(request, response);
     out.println("</body></html>");
   }
-
+  
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response)
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
     try {
       Lesson lesson = new Lesson();
-
       lesson.setTitle(request.getParameter("title"));
       lesson.setContents(request.getParameter("contents"));
       lesson.setStartDate(Date.valueOf(request.getParameter("startDate")));
       lesson.setEndDate(Date.valueOf(request.getParameter("endDate")));
       lesson.setTotalHours(Integer.parseInt(request.getParameter("totalHours")));
       lesson.setDayHours(Integer.parseInt(request.getParameter("dayHours")));
+      
       lessonDao.insert(lesson);
       response.sendRedirect("/lesson/list");
-
+      
     } catch (Exception e) {
       request.setAttribute("message", "데이터 저장에 실패했습니다!");
       request.setAttribute("refresh", "/lesson/list");

@@ -17,15 +17,15 @@ public class BoardController {
   @RequestMapping("/board/form")
   public String form() {
     return "/jsp/board/form.jsp";
-  }  
-
+  }
+  
   @RequestMapping("/board/add")
   public String add(Board board) 
       throws Exception {
     boardDao.insert(board);
     return "redirect:list";
   }
-
+  
   @RequestMapping("/board/delete")
   public String delete(int no) 
       throws Exception {
@@ -34,7 +34,7 @@ public class BoardController {
     }
     return "redirect:list";
   }
-
+  
   @RequestMapping("/board/detail")
   public String detail(Map<String,Object> model, int no) 
       throws Exception {
@@ -48,24 +48,21 @@ public class BoardController {
     model.put("board", board);
     return "/jsp/board/detail.jsp";
   }
-
+  
   @RequestMapping("/board/list")
   public String list(Map<String,Object> model) 
       throws Exception {
-
+    
     List<Board> boards = boardDao.findAll();
     model.put("boards", boards);
     return "/jsp/board/list.jsp";
   }
-
+  
   @RequestMapping("/board/update")
-  public String update(int no, String contents) 
+  public String update(Board board) 
       throws Exception {
-    Board board = new Board();
-    board.setNo(no);
-    board.setContents(contents);
     boardDao.update(board);
-
     return "redirect:list";
   }
+
 }

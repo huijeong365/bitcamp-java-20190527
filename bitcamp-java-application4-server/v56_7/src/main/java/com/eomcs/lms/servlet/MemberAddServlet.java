@@ -19,13 +19,15 @@ public class MemberAddServlet extends HttpServlet {
 
   @Override
   public void init() throws ServletException {
-    ApplicationContext appCtx =
+    ApplicationContext appCtx = 
         (ApplicationContext) getServletContext().getAttribute("iocContainer");
     memberDao = appCtx.getBean(MemberDao.class);
   }
-  
+
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+  public void doGet(HttpServletRequest request, HttpServletResponse response) 
+      throws IOException, ServletException {
+    
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<html><head><title>회원 등록폼</title>"
@@ -33,7 +35,7 @@ public class MemberAddServlet extends HttpServlet {
         + "<link rel='stylesheet' href='/css/common.css'>"
         + "</head>");
     out.println("<body>");
-    
+
     request.getRequestDispatcher("/header").include(request, response);
     
     out.println("<div id='content'>");
@@ -52,8 +54,9 @@ public class MemberAddServlet extends HttpServlet {
   }
   
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response)
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
+    
     try {
       Member member = new Member();
       
@@ -62,6 +65,7 @@ public class MemberAddServlet extends HttpServlet {
       member.setPassword(request.getParameter("password"));
       member.setPhoto(request.getParameter("photo"));
       member.setTel(request.getParameter("tel"));
+      
       memberDao.insert(member);
       response.sendRedirect("/member/list");
       
@@ -72,5 +76,4 @@ public class MemberAddServlet extends HttpServlet {
       request.getRequestDispatcher("/error").forward(request, response);
     }
   }
-  
 }

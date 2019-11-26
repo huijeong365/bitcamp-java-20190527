@@ -16,16 +16,15 @@ public class BoardAddCommand implements Command {
 
   @Override
   public void execute(BufferedReader in, PrintStream out) {
-    
     try {
       Board board = new Board();
       board.setContents(Input.getStringValue(in, out, "내용? "));
-      
+
       boardDao.insert(board);
-      System.out.println("저장하였습니다.");
+      out.println("저장하였습니다.");
       
     } catch (Exception e) {
-      System.out.println("데이터 저장에 실패했습니다!");
+      out.println("데이터 저장에 실패했습니다!");
       System.out.println(e.getMessage());
     }
   }

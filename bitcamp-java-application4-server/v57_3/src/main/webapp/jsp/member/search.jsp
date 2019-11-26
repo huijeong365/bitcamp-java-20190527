@@ -1,7 +1,6 @@
-<%@page import="com.eomcs.lms.domain.Member"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,11 +22,7 @@
   <th>전화번호</th>
   <th>등록일</th>
 </tr>
-<%
-List<Member> members = (List<Member>)request.getAttribute("members");
-for (Member member : members) {
-  pageContext.setAttribute("member", member);
-%>
+<c:forEach items="${members}" var="member">
   <tr>
     <td>${member.no}</td>
     <td><a href='/member/detail?no=${member.no}'>${member.name}</a></td>
@@ -35,7 +30,7 @@ for (Member member : members) {
     <td>${member.tel}</td>
     <td>${member.registeredDate}</td>
   </tr>
-<%}%>
+</c:forEach> 
 </table>
 </div>
 

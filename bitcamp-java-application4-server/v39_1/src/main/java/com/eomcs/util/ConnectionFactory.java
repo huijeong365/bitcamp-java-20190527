@@ -9,21 +9,24 @@ public class ConnectionFactory {
   String jdbcUrl;
   String username;
   String password;
-  
+
   public ConnectionFactory(
-      String jdbcDriver,
-      String jdbcUrl,
-      String username,
-      String password) {
+      String jdbcDriver, String jdbcUrl, String username, String password) {
+    
     this.jdbcDriver = jdbcDriver;
     this.jdbcUrl = jdbcUrl;
     this.username = username;
     this.password = password;
   }
-  
-  public Connection getConnection () throws Exception {
+
+  public Connection getConnection() throws Exception {
     Class.forName(jdbcDriver);
     
     return DriverManager.getConnection(jdbcUrl, username, password);
   }
 }
+
+
+
+
+

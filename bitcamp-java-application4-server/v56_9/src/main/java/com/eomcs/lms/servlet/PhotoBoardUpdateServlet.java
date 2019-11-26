@@ -37,12 +37,11 @@ public class PhotoBoardUpdateServlet extends HttpServlet {
     txManager = appCtx.getBean(PlatformTransactionManager.class);
     photoBoardDao = appCtx.getBean(PhotoBoardDao.class);
     photoFileDao = appCtx.getBean(PhotoFileDao.class);
-    
     uploadDir = getServletContext().getRealPath("/upload/photoboard");
   }
 
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response)
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
     
     // 트랜잭션 동작을 정의한다.
@@ -78,10 +77,9 @@ public class PhotoBoardUpdateServlet extends HttpServlet {
         photoFileDao.insert(photoFile);
         count++;
       }
-
+      
       if (count == 0) {
         throw new Exception("사진 파일 없음!");
-      
       }
       
       txManager.commit(status);

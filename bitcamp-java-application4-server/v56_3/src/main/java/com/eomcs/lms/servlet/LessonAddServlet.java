@@ -18,15 +18,15 @@ import com.eomcs.lms.domain.Lesson;
 @WebServlet("/lesson/add")
 public class LessonAddServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
-
+  
   private static final Logger logger = 
       LogManager.getLogger(LessonAddServlet.class);
-
+  
   private LessonDao lessonDao;
 
   @Override
   public void init() throws ServletException {
-    ApplicationContext appCtx =
+    ApplicationContext appCtx = 
         (ApplicationContext) getServletContext().getAttribute("iocContainer");
     lessonDao = appCtx.getBean(LessonDao.class);
   }
@@ -48,21 +48,21 @@ public class LessonAddServlet extends HttpServlet {
     out.println("</form>");
     out.println("</body></html>");
   }
-
+  
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     try {
       Lesson lesson = new Lesson();
-
       lesson.setTitle(request.getParameter("title"));
       lesson.setContents(request.getParameter("contents"));
       lesson.setStartDate(Date.valueOf(request.getParameter("startDate")));
       lesson.setEndDate(Date.valueOf(request.getParameter("endDate")));
       lesson.setTotalHours(Integer.parseInt(request.getParameter("totalHours")));
       lesson.setDayHours(Integer.parseInt(request.getParameter("dayHours")));
+      
       lessonDao.insert(lesson);
       response.sendRedirect("/lesson/list");
-
+      
     } catch (Exception e) {
       response.setContentType("text/html;charset=UTF-8");
       PrintWriter out = response.getWriter();

@@ -15,17 +15,17 @@ public class BoardDeleteServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
   
   private BoardDao boardDao;
-
+  
   @Override
   public void init() throws ServletException {
-    ApplicationContext appCtx =
+    ApplicationContext appCtx = 
         (ApplicationContext) getServletContext().getAttribute("iocContainer");
     boardDao = appCtx.getBean(BoardDao.class);
   }
   
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html; charset=UTF-8");
+    response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<html><head><title>게시물 삭제</title>"
         + "<meta http-equiv='Refresh' content='1;url=/board/list'>"
@@ -38,12 +38,13 @@ public class BoardDeleteServlet extends HttpServlet {
       } else {
         out.println("<p>해당 데이터가 없습니다.</p>");
       }
-
+      
     } catch (Exception e) {
       out.println("<p>데이터 삭제에 실패했습니다!</p>");
-      System.out.println(e.getMessage());
+      throw new RuntimeException(e);
+      
+    } finally {
+      out.println("</body></html>");
     }
-    out.println("</body></html>");
   }
-
 }

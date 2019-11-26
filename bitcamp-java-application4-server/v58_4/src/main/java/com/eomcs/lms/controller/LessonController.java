@@ -16,7 +16,7 @@ public class LessonController {
   @Resource
   private LessonDao lessonDao;
 
-  @RequestMapping ("/lesson/add")
+  @RequestMapping("/lesson/add")
   public String add(HttpServletRequest request, HttpServletResponse response) 
       throws Exception {
     if (request.getMethod().equalsIgnoreCase("GET")) {

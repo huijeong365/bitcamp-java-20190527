@@ -40,10 +40,10 @@ public class DispatcherServlet extends HttpServlet {
         servletPath, pathInfo));
     
     try {
-      // 클라이언트 요청을 처리할 request handler를 찾는다
+      // 클라이언트 요청을 처리할 request handler를 찾는다.
       RequestHandler requestHandler = handlerMapping.getRequestHandler(pathInfo);
       if (requestHandler == null) {
-        throw new Exception(pathInfo + "요청을 처리할 수 없습니다.");
+        throw new Exception(pathInfo + " 요청을 처리할 수 없습니다.");
       }
       
       // request handler를 실행한다.

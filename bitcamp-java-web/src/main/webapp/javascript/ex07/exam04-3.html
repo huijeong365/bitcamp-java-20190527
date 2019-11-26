@@ -20,7 +20,7 @@
 //       
 var tbody = document.querySelector("tbody");
 
-document.querySelector("#btn1")
+document.querySelector("#btn1").onclick = () => {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
         if (xhr.readyState == 4) {
@@ -47,7 +47,7 @@ document.querySelector("#btn1")
     };
     xhr.open("GET", "test6.jsp", true);
     xhr.send();
-})();
+};
 
 </script>
 </body>

@@ -15,9 +15,4 @@ public class ServletResponse {
   public String getResponseEntity() {
     return out.toString();
   }
-  
-  
-  
-  
-  
 }

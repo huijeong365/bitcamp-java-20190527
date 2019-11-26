@@ -12,7 +12,6 @@ import com.eomcs.util.ServletResponse;
 
 @Component
 public class LessonCommand {
-
   private LessonDao lessonDao;
 
   public LessonCommand(LessonDao lessonDao) {

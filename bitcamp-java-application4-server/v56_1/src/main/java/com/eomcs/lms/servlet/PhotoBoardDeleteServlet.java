@@ -15,6 +15,12 @@ import com.eomcs.lms.dao.PhotoFileDao;
 public class PhotoBoardDeleteServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
   
+  // 이 클래스에서 로그를 출력할 일이 있다면 다음과 같이 로거를 만들어 사용하라!
+  /*
+  private static final Logger logger = 
+      LogManager.getLogger(PhotoBoardAddServlet.class);
+  */
+  
   private PhotoBoardDao photoBoardDao;
   private PhotoFileDao photoFileDao;
   
@@ -54,6 +60,4 @@ public class PhotoBoardDeleteServlet extends HttpServlet {
       out.println("</body></html>");
     }
   }
-  
-
 }

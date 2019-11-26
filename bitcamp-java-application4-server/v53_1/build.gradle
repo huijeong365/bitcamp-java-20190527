@@ -30,6 +30,7 @@ dependencies {
     // Log4j
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     
+    
     implementation 'com.google.guava:guava:27.1-jre'
     testImplementation 'junit:junit:4.12'
 }

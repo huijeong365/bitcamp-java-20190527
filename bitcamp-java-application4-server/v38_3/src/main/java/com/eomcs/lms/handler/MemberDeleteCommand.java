@@ -14,10 +14,9 @@ public class MemberDeleteCommand implements Command {
 
   @Override
   public void execute(BufferedReader in, PrintStream out) {
-
     try {
       int no = Input.getIntValue(in, out, "번호? ");
-      
+
       if (memberDao.delete(no) > 0) {
         out.println("데이터를 삭제하였습니다.");
       } else {

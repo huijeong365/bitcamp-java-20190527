@@ -27,7 +27,6 @@ public class LessonDetailServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
     
-    response.setContentType("text/html;charset=UTF-8");
     try {
       int no = Integer.parseInt(request.getParameter("no"));
      
@@ -35,6 +34,7 @@ public class LessonDetailServlet extends HttpServlet {
       if (lesson == null) {
         throw new Exception("해당 번호의 데이터가 없습니다!");
       }
+      
       request.setAttribute("lesson", lesson);
       request.setAttribute("viewUrl", "/jsp/lesson/detail.jsp");
       

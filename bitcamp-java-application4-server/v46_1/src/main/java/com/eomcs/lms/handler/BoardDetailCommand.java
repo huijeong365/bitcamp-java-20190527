@@ -8,7 +8,7 @@ import com.eomcs.util.Input;
 
 public class BoardDetailCommand implements Command {
   
-private BoardDao boardDao;
+  private BoardDao boardDao;
   
   public BoardDetailCommand(BoardDao boardDao) {
     this.boardDao = boardDao;

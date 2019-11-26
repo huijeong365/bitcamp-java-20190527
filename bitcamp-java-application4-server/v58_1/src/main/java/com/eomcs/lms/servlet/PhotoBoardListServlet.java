@@ -30,7 +30,6 @@ public class PhotoBoardListServlet extends HttpServlet {
     
     try {
       List<PhotoBoard> photoBoards = photoBoardDao.findAll();
-      
       request.setAttribute("photoBoards", photoBoards);
       request.setAttribute("viewUrl", "/jsp/photoboard/list.jsp");
       

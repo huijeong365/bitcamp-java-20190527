@@ -21,24 +21,24 @@ import com.eomcs.lms.domain.PhotoFile;
 @WebServlet("/photoboard/add")
 public class PhotoBoardAddServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
-
+  
   String uploadDir;
   private PhotoBoardDao photoBoardDao;
   private PhotoFileDao photoFileDao;
-
+  
   @Override
   public void init() throws ServletException {
     ApplicationContext appCtx = 
         (ApplicationContext) getServletContext().getAttribute("iocContainer");
     photoBoardDao = appCtx.getBean(PhotoBoardDao.class);
     photoFileDao = appCtx.getBean(PhotoFileDao.class);
-
     uploadDir = getServletContext().getRealPath("/upload/photoboard");
   }
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response)
+  public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
+    
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<html><head><title>사진게시물 등록폼</title>"
@@ -48,12 +48,15 @@ public class PhotoBoardAddServlet extends HttpServlet {
     out.println("<body>");
 
     request.getRequestDispatcher("/header").include(request, response);
-
+    
     out.println("<div id='content'>");
     out.println("<h1>사진게시물 등록폼</h1>");
     out.println("<form action='/photoboard/add' method='post' enctype='multipart/form-data'>");
     out.println("제목: <input type='text' name='title'><br>");
     out.println("수업: <input type='text' name='lessonNo'><br>");
+    out.println("사진: <input type='file' name='filePath'><br>");
+    out.println("사진: <input type='file' name='filePath'><br>");
+    out.println("사진: <input type='file' name='filePath'><br>");
     out.println("사진: <input type='file' name='filePath'><br>");
     out.println("사진: <input type='file' name='filePath'><br>");
     out.println("사진: <input type='file' name='filePath'><br>");
@@ -63,18 +66,18 @@ public class PhotoBoardAddServlet extends HttpServlet {
     request.getRequestDispatcher("/footer").include(request, response);
     out.println("</body></html>");
   }
-
+  
+ 
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response)
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
     try {
       PhotoBoard photoBoard = new PhotoBoard();
-
       photoBoard.setTitle(request.getParameter("title"));
       photoBoard.setLessonNo(Integer.parseInt(request.getParameter("lessonNo")));
-
+      
       photoBoardDao.insert(photoBoard);
-
+      
       int count = 0;
       Collection<Part> parts = request.getParts();
       for (Part part : parts) {
@@ -92,13 +95,13 @@ public class PhotoBoardAddServlet extends HttpServlet {
         photoFileDao.insert(photoFile);
         count++;
       }
-
+      
       if (count == 0) {
         throw new Exception("사진 파일 없음!");
       }
       
       response.sendRedirect("/photoboard/list");
-
+      
     } catch (Exception e) {
       request.setAttribute("message", "데이터 저장에 실패했습니다!");
       request.setAttribute("refresh", "/photoboard/list");

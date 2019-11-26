@@ -22,7 +22,7 @@ public class PhotoBoardAddServlet extends HttpServlet {
   
   private static final Logger logger = 
       LogManager.getLogger(PhotoBoardAddServlet.class);
-  
+
   private PhotoBoardDao photoBoardDao;
   private PhotoFileDao photoFileDao;
   
@@ -46,14 +46,17 @@ public class PhotoBoardAddServlet extends HttpServlet {
     out.println("사진1: <input type='text' name='filePath1'><br>");
     out.println("사진2: <input type='text' name='filePath2'><br>");
     out.println("사진3: <input type='text' name='filePath3'><br>");
+    out.println("사진4: <input type='text' name='filePath4'><br>");
+    out.println("사진5: <input type='text' name='filePath5'><br>");
+    out.println("사진6: <input type='text' name='filePath6'><br>");
     out.println("<button>등록</button>");
     out.println("</form>");
     out.println("</body></html>");
   }
   
+ 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    
     try {
       PhotoBoard photoBoard = new PhotoBoard();
       photoBoard.setTitle(request.getParameter("title"));
@@ -62,7 +65,7 @@ public class PhotoBoardAddServlet extends HttpServlet {
       photoBoardDao.insert(photoBoard);
       
       int count = 0;
-      for (int i = 1; i <= 3; i++) {
+      for (int i = 1; i <= 6; i++) {
         String filepath = request.getParameter("filePath" + i);
         if (filepath.length() == 0) {
           continue;
@@ -77,6 +80,7 @@ public class PhotoBoardAddServlet extends HttpServlet {
       if (count == 0) {
         throw new Exception("사진 파일 없음!");
       }
+      
       response.sendRedirect("/photoboard/list");
       
     } catch (Exception e) {

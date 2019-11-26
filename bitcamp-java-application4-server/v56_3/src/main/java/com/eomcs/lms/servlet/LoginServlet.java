@@ -20,18 +20,18 @@ public class LoginServlet extends HttpServlet {
   
   @Override
   public void init() throws ServletException {
-    ApplicationContext appCtx =
+    ApplicationContext appCtx = 
         (ApplicationContext) getServletContext().getAttribute("iocContainer");
     memberDao = appCtx.getBean(MemberDao.class);
   }
-  
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html; charset=UTF-8");
+    response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<html><head><title>로그인 폼</title></head>");
     out.println("<body><h1>로그인 폼</h1>");
-    out.println("<form action='/auth/login'method='post'>");
+    out.println("<form action='/auth/login' method='post'>");
     out.println("이메일: <input type='text' name='email'><br>");
     out.println("암호: <input type='text' name='password'><br>");
     out.println("<button>로그인</button>");
@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
   
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html; charset=UTF8");
+    response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<html><head><title>로그인 결과</title></head>");
     out.println("<body><h1>로그인</h1>");

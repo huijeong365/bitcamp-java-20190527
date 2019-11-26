@@ -15,7 +15,6 @@ public class MemberDetailCommand implements Command {
 
   @Override
   public void execute(BufferedReader in, PrintStream out) {
-    
     try {
       int no = Input.getIntValue(in, out, "번호? ");
       

@@ -1,8 +1,8 @@
-// v57_3 : JSP에 JSPL적용하기
+// v57_3 : JSP에 JSTL 적용하기
 package com.eomcs.lms;
 
 // 작업:
-// => /webapp/jsp/board/*.jsp 변경
+// => /webapp/jsp/**/*.jsp 변경
 //
 //
 // dummy 클래스!
@@ -12,3 +12,13 @@ package com.eomcs.lms;
 //
 public class App {
 }
+
+
+
+
+
+
+
+
+
+

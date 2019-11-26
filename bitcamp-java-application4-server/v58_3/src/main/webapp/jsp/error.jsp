@@ -28,7 +28,6 @@
 
 </body>
 </html>
-
 <%! 
 private static final Logger logger = LogManager.getLogger("error.jsp");
 %>

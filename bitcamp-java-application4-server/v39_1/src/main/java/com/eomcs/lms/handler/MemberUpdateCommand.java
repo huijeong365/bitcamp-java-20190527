@@ -15,7 +15,6 @@ public class MemberUpdateCommand implements Command {
   
   @Override
   public void execute(BufferedReader in, PrintStream out) {
-    
     try {
       int no = Input.getIntValue(in, out, "번호? ");
       
@@ -49,13 +48,11 @@ public class MemberUpdateCommand implements Command {
       str = Input.getStringValue(in, out, "전화(" + member.getTel() + ")? ");
       if (str.length() > 0) {
         member.setTel(str);
-        memberDao.update(member);
-        out.println("데이터를 변경하였습니다.");
-      
-      } else {
-        out.println("데이터 변경을 취소합니다.");
       }
-     
+      
+      memberDao.update(member);
+      out.println("데이터를 변경하였습니다.");
+
     } catch (Exception e) {
       out.println("데이터 변경에 실패했습니다!");
       System.out.println(e.getMessage());

@@ -16,9 +16,9 @@ import com.eomcs.lms.domain.PhotoFile;
 @WebServlet("/photoboard/detail")
 public class PhotoBoardDetailServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
-
+  
   private PhotoBoardDao photoBoardDao;
-
+  
   @Override
   public void init() throws ServletException {
     ApplicationContext appCtx = 
@@ -27,8 +27,9 @@ public class PhotoBoardDetailServlet extends HttpServlet {
   }
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response)
+  public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
+    
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<html><head><title>사진게시물 상세</title>"
@@ -38,19 +39,20 @@ public class PhotoBoardDetailServlet extends HttpServlet {
     out.println("<body>");
 
     request.getRequestDispatcher("/header").include(request, response);
-
+    
     out.println("<div id='content'>");
     out.println("<h1>사진게시물 상세</h1>");
+    
     try {
       int no = Integer.parseInt(request.getParameter("no"));
-
+      
       PhotoBoard photoBoard = photoBoardDao.findWithFilesBy(no);
       if (photoBoard == null) {
         out.println("<p>해당 번호의 데이터가 없습니다!</p>");
 
       } else {
         photoBoardDao.increaseViewCount(no);
-
+        
         out.println("<form action='/photoboard/update' method='post'>");
         out.printf("번호: <input type='text' name='no' value='%d' readonly><br>\n",
             photoBoard.getNo());
@@ -60,9 +62,9 @@ public class PhotoBoardDetailServlet extends HttpServlet {
             photoBoard.getLessonNo());
         out.printf("조회수: %d<br>\n",
             photoBoard.getViewCount());
-
+        
         List<PhotoFile> files = photoBoard.getFiles();
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 6; i++) {
           if (i <= files.size()) {
             out.printf("사진%d: <input type='text' name='filePath%d' value='%s'><br>\n",
                 i, i, files.get(i-1).getFilePath());
@@ -76,17 +78,15 @@ public class PhotoBoardDetailServlet extends HttpServlet {
             photoBoard.getNo());
         out.println("</form>");
       }
-
+      
     } catch (Exception e) {
       out.println("<p>데이터 조회에 실패했습니다!</p>");
       throw new RuntimeException(e);
-
+      
     } finally {
       out.println("</div>");
       request.getRequestDispatcher("/footer").include(request, response);
       out.println("</body></html>");
     }
   }
-
-
 }

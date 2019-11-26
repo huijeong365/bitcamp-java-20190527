@@ -3,9 +3,10 @@ package com.eomcs.lms;
 
 // 작업:
 // => BoardXxxController의 request handler를 BoardController로 묶는다.
-// => 페이지 컨트롤러임을 명확하게 표시하기 위해 @Component 대신  @Controller로 표시한다.
-// => RequestMappingHandlerMapping  생성
+// => 페이지 컨트롤러임을 명확하게 표시하기 위해 @Component 대신 @Controller로 표시한다.
+// => RequestMappingHandlerMapping 생성
 // => DispatcherServlet 변경
+//
 //
 // dummy 클래스!
 // => 기존 버전에서 계속 존재했던 클래스라서 그대로 둠.
@@ -14,3 +15,13 @@ package com.eomcs.lms;
 //
 public class App {
 }
+
+
+
+
+
+
+
+
+
+

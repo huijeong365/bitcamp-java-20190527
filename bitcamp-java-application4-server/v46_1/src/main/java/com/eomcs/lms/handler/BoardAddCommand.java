@@ -20,7 +20,7 @@ public class BoardAddCommand implements Command {
   
   @Override
   public void execute(BufferedReader in, PrintStream out) {
-    try { 
+    try {
       Board board = new Board();
       board.setContents(Input.getStringValue(in, out, "내용? "));
 

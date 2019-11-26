@@ -31,12 +31,11 @@ public class PhotoBoardUpdateServlet extends HttpServlet {
         (ApplicationContext) getServletContext().getAttribute("iocContainer");
     photoBoardDao = appCtx.getBean(PhotoBoardDao.class);
     photoFileDao = appCtx.getBean(PhotoFileDao.class);
-    
     uploadDir = getServletContext().getRealPath("/upload/photoboard");
   }
 
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response)
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
     try {
       PhotoBoard photoBoard = new PhotoBoard();
@@ -63,10 +62,9 @@ public class PhotoBoardUpdateServlet extends HttpServlet {
         photoFileDao.insert(photoFile);
         count++;
       }
-
+      
       if (count == 0) {
         throw new Exception("사진 파일 없음!");
-      
       }
       
       response.sendRedirect("/photoboard/list");

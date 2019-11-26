@@ -15,9 +15,9 @@ import com.eomcs.lms.domain.PhotoBoard;
 @WebServlet("/photoboard/list")
 public class PhotoBoardListServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
-
+  
   private PhotoBoardDao photoBoardDao;
-
+  
   @Override
   public void init() throws ServletException {
     ApplicationContext appCtx = 
@@ -26,23 +26,23 @@ public class PhotoBoardListServlet extends HttpServlet {
   }
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response)
+  public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
+    
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<html><head><title>사진게시물 목록</title>"
         + "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>"
         + "<link rel='stylesheet' href='/css/common.css'>"
         + "</head>");
-
     out.println("<body>");
 
     request.getRequestDispatcher("/header").include(request, response);
-
+    
     out.println("<div id='content'>");
     out.println("<h1>사진게시물 목록</h1>");
     out.println("<a href='/photoboard/add'>새 사진게시물</a><br>");
-
+    
     try {
       out.println("<table class='table table-hover'>");
       out.println("<tr><th>번호</th><th>제목</th><th>등록일</th><th>조회수</th><th>수업</th></tr>");
@@ -62,16 +62,15 @@ public class PhotoBoardListServlet extends HttpServlet {
             photoBoard.getLessonNo());
       }
       out.println("</table>");
-
+      
     } catch (Exception e) {
       out.println("<p>데이터 목록 조회에 실패했습니다!</p>");
       throw new RuntimeException(e);
-
+    
     } finally {
       out.println("</div>");
       request.getRequestDispatcher("/footer").include(request, response);
       out.println("</body></html>");
     }
   }
-
 }

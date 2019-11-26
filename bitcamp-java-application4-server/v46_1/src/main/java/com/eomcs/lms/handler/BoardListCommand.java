@@ -8,7 +8,7 @@ import com.eomcs.lms.domain.Board;
 
 public class BoardListCommand implements Command {
   
-private BoardDao boardDao;
+  private BoardDao boardDao;
   
   public BoardListCommand(BoardDao boardDao) {
     this.boardDao = boardDao;
@@ -21,7 +21,6 @@ private BoardDao boardDao;
   @Override
   public void execute(BufferedReader in, PrintStream out) {
     try {
-      
       List<Board> boards = boardDao.findAll();
       for (Board board : boards) {
         out.printf("%s, %s, %s, %s\n", 

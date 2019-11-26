@@ -92,53 +92,61 @@ public class PhotoBoardDaoImpl implements PhotoBoardDao {
       return stmt.executeUpdate("delete from lms_photo where photo_id=" + no);
     }
   }
-
   
   public static void main(String[] args) throws Exception {
-   try (Connection con = DriverManager.getConnection(
+    try (Connection con = DriverManager.getConnection(
         "jdbc:mariadb://localhost/bitcampdb?user=bitcamp&password=1111");) {
-     
-     PhotoBoardDao dao = new PhotoBoardDaoImpl(con);
-     
-     // 1) insert() 테스트
-     /*
-     PhotoBoard b = new PhotoBoard();
-     b.setLessonNo(101);
-     b.setTitle("사진 게시글 테스트2");
-     
-     dao.insert(b);
-     */
-     
-     // 2) findAll() 테스트
-     /*
-     List<PhotoBoard> list = dao.findAll();
-     for (PhotoBoard b : list) {
-       System.out.println(b);
-     }
-     */
-     
-     // 3) findBy() 테스트
-     /*
-      * PhotoBoard b = dao.findBy(9);
-     System.out.println(b);  
-     */
-     
-     // 4) update() 테스트
-     /*
-     PhotoBoard b = new PhotoBoard();
-     b.setNo(9);
-     b.setTitle("제목 변경");
-     dao.update(b);
-     */
-     
-     // 5) delete() 테스트
-     /*
-     dao.delete(9);
-     */
-     
-     System.out.println("실행 완료!");
-   }
+    
+      //PhotoBoardDao dao = new PhotoBoardDaoImpl(con);
+    
+      //1) insert() 테스트
+      /*
+      PhotoBoard b = new PhotoBoard();
+      b.setLessonNo(101);
+      b.setTitle("사진 게시글 테스트2");
+      
+      dao.insert(b);
+      */
+      
+      //2) findAll() 테스트
+      /*
+      List<PhotoBoard> list = dao.findAll();
+      for (PhotoBoard b : list) {
+        System.out.println(b);
+      }
+      */
+      
+      //3) findBy() 테스트
+      /*
+      PhotoBoard b = dao.findBy(9);
+      System.out.println(b);
+      */
+      
+      //4) update() 테스트
+      /*
+      PhotoBoard b = new PhotoBoard();
+      b.setNo(9);
+      b.setTitle("제목 변경");
+      dao.update(b);
+      */
+      
+      //5) delete() 테스트
+      /*
+      dao.delete(9);
+      */
+      
+      System.out.println("실행 완료!");
+    }
   }
-  
-  
+
 }
+
+
+
+
+
+
+
+
+
+

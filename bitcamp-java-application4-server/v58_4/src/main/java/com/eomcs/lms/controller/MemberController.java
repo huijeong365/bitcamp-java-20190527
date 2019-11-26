@@ -17,7 +17,6 @@ public class MemberController {
   @Resource 
   private MemberDao memberDao;
 
-
   @RequestMapping("/member/add")
   public String add(HttpServletRequest request, HttpServletResponse response) 
       throws Exception {

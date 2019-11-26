@@ -13,7 +13,7 @@
 <body>
 <h1>지시문(directive element) - tablib</h1>
 <c:forEach items="홍길동,임꺽정,유관순,안중근,윤봉길,김구,김원봉" var="n">
-이름=<%=pageContext.getAttribute("n")%>, ${n}, ${n}, ${n}, ${n}<br>
+이름=<%=pageContext.getAttribute("n")%>, ${n}<br>
 </c:forEach>
 </body>
 </html>

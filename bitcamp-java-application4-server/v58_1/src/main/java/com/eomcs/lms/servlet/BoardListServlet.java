@@ -31,13 +31,11 @@ public class BoardListServlet extends HttpServlet {
     try {
       List<Board> boards = boardDao.findAll();
       
-      request.setAttribute("contentType", "text/html;charset=UTF-8");
       request.setAttribute("boards", boards);
       request.setAttribute("viewUrl", "/jsp/board/list.jsp");
       
     } catch (Exception e) {
       request.setAttribute("error", e);
-      
     }
   }
 }

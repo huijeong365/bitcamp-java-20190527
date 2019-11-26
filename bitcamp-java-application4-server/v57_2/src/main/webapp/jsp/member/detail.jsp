@@ -21,7 +21,7 @@
 이메일: <input type='text' name='email' value='${member.email}'><br>
 암호: <input type='text' name='password' value='${member.password}'><br>
 전화: <input type='text' name='tel' value='${member.tel}'><br>
-가입일: ${member.registeredDate}><br>
+가입일: ${member.registeredDate}<br>
 <button>변경</button>
 <a href='/member/delete?no=${member.no}'>삭제</a>
 </form>

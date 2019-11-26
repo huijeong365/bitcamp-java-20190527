@@ -19,15 +19,14 @@ public class LessonUpdateServlet extends HttpServlet {
 
   @Override
   public void init() throws ServletException {
-    ApplicationContext appCtx =
+    ApplicationContext appCtx = 
         (ApplicationContext) getServletContext().getAttribute("iocContainer");
     lessonDao = appCtx.getBean(LessonDao.class);
   }
 
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response)
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws IOException, ServletException {
-    
     try {
       Lesson lesson = new Lesson();
       lesson.setNo(Integer.parseInt(request.getParameter("no")));
@@ -37,6 +36,7 @@ public class LessonUpdateServlet extends HttpServlet {
       lesson.setEndDate(Date.valueOf(request.getParameter("endDate")));
       lesson.setTotalHours(Integer.parseInt(request.getParameter("totalHours")));
       lesson.setDayHours(Integer.parseInt(request.getParameter("dayHours")));
+      
       lessonDao.update(lesson);
       response.sendRedirect("/lesson/list");
       

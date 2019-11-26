@@ -17,6 +17,12 @@ import com.eomcs.lms.domain.PhotoFile;
 public class PhotoBoardDetailServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
   
+  // 이 클래스에서 로그를 출력할 일이 있다면 다음과 같이 로거를 만들어 사용하라!
+  /*
+  private static final Logger logger = 
+      LogManager.getLogger(PhotoBoardAddServlet.class);
+  */
+  
   private PhotoBoardDao photoBoardDao;
   
   @Override
@@ -54,7 +60,7 @@ public class PhotoBoardDetailServlet extends HttpServlet {
             photoBoard.getViewCount());
         
         List<PhotoFile> files = photoBoard.getFiles();
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 6; i++) {
           if (i <= files.size()) {
             out.printf("사진%d: <input type='text' name='filePath%d' value='%s'><br>\n",
                 i, i, files.get(i-1).getFilePath());
@@ -77,6 +83,4 @@ public class PhotoBoardDetailServlet extends HttpServlet {
       out.println("</body></html>");
     }
   }
-  
-
 }

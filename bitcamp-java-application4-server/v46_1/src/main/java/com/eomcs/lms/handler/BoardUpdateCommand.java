@@ -8,7 +8,7 @@ import com.eomcs.util.Input;
 
 public class BoardUpdateCommand implements Command {
   
-private BoardDao boardDao;
+  private BoardDao boardDao;
   
   public BoardUpdateCommand(BoardDao boardDao) {
     this.boardDao = boardDao;

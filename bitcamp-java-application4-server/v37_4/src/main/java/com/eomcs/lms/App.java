@@ -122,11 +122,11 @@ public class App {
       String request = in.readLine();
       if (request.equals("quit")) {
         out.println("Good bye!");
-
+        
       } else if (request.equals("serverstop")) {
         state = STOP;
         out.println("Good bye!");
-     
+        
       } else {
         Command command = commandMap.get(request);
         if (command == null) {

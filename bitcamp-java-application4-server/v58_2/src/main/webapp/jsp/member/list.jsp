@@ -31,9 +31,9 @@
     <td>${member.tel}</td>
     <td>${member.registeredDate}</td>
   </tr>
-</c:forEach>
+</c:forEach> 
 </table>
-<form action='/member/search'>
+<form action='search'>
   검색어: <input type='text' name='keyword'>
   <button>검색</button>
 </form>
